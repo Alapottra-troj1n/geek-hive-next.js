@@ -26,7 +26,7 @@ const Navbar = () => {
           {navLinks}
             </ul>
           </div>
-          <Link href={'/'}><span className="text-2xl tracking-wider font-type font-extrabold hover:text-main transition-all cursor-pointer">ALAPOTTRA</span></Link>
+          <Link href={'/'}><span className="text-2xl tracking-wider font-type font-extrabold hover:text-main transition-all cursor-pointer">GEEK HIVE</span></Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal font-type text-lg tracking-wide font-bold p-0 gap-8">
@@ -34,7 +34,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className=" px-7 py-1 transition-all font-semibold font-type border-main text-lg  bg-main hover:border-main border-2 text-black hover:bg-stone-900 cursor-pointer hover:text-white  ">CONTACT</a>
+          <a className=" px-7 py-1 transition-all font-semibold font-type border-main text-lg  bg-main hover:border-main border-2 text-black hover:bg-stone-900 cursor-pointer hover:text-white  ">LOGIN</a>
         </div>
     
       </div>
