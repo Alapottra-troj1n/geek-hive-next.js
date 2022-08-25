@@ -14,7 +14,7 @@ const Navbar = () => {
 
 
     return (
-      <div className='fixed w-full bg-base-100'>
+      <div className='fixed w-full bg-stone-900 text-white'>
         <div className="navbar max-w-7xl  py-5 mx-auto ">
    
         <div className="navbar-start">
@@ -26,15 +26,15 @@ const Navbar = () => {
           {navLinks}
             </ul>
           </div>
-          <Link href={'/'}><span className="text-4xl tracking-wider font-display font-black hover:text-main transition-all cursor-pointer">GEEK HIVE</span></Link>
+          <Link href={'/'}><span className="text-2xl tracking-wider font-type font-extrabold hover:text-main transition-all cursor-pointer">ALAPOTTRA</span></Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal font-type text-xl tracking-wide font-bold p-0 gap-8">
+          <ul className="menu menu-horizontal font-type text-lg tracking-wide font-bold p-0 gap-8">
             {navLinks}
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn px-10 text-lg font-display hover:bg-main hover:text-slate-800 className='cursur' ">Login</a>
+          <a className=" px-7 py-1 transition-all font-semibold font-type border-main text-lg  bg-main hover:border-main border-2 text-black hover:bg-stone-900 cursor-pointer hover:text-white  ">CONTACT</a>
         </div>
     
       </div>
