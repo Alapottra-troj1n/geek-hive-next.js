@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import BlogPost from '../components/blogPost'
 import '../styles/home.module.css'
 
 
@@ -33,58 +34,13 @@ export default function Home() {
 
      <div className="py-20 grid grid-cols-4 items-center max-w-7xl mx-auto ">
 
+      <BlogPost/>
+      <BlogPost/>
+      <BlogPost/>
+      <BlogPost/>
 
 
-      <div className="flex flex-col gap-2 cursor-pointer" >
-        <div className="h-72 w-60 bg-[url('/ala.jpg')] bg-cover bg-center relative"  >
-              <div className='font-type  absolute bg-white p-3' >
-                <h2 className='text-4xl font-black text-slate-800' >14</h2>
-                <p className='text-slate-800 font-bold' >DEC 2022</p>
-              </div>
-        </div>
-        <p>Virtual by Jessy Howls</p>
-        <h2 className="font-type font-semibold text-2xl" >SOCIAL MEDIA MARKETING</h2>
 
-      </div>
-
-
-      <div className="flex flex-col gap-2 cursor-pointer" >
-        <div className="h-72 w-60 bg-[url('/ala.jpg')] bg-cover bg-center relative"  >
-              <div className='font-type  absolute bg-white p-3' >
-                <h2 className='text-4xl font-black text-slate-800' >14</h2>
-                <p className='text-slate-800 font-bold' >DEC 2022</p>
-              </div>
-        </div>
-        <p>Virtual by Jessy Howls</p>
-        <h2 className="font-type font-semibold text-2xl" >SOCIAL MEDIA MARKETING</h2>
-
-      </div>
-
-
-      <div className="flex flex-col gap-2 cursor-pointer" >
-        <div className="h-72 w-60 bg-[url('/ala.jpg')] bg-cover bg-center relative"  >
-              <div className='font-type  absolute bg-white p-3' >
-                <h2 className='text-4xl font-black text-slate-800' >14</h2>
-                <p className='text-slate-800 font-bold' >DEC 2022</p>
-              </div>
-        </div>
-        <p>Virtual by Jessy Howls</p>
-        <h2 className="font-type font-semibold text-2xl" >SOCIAL MEDIA MARKETING</h2>
-
-      </div>
-
-
-      <div className="flex flex-col gap-2 cursor-pointer" >
-        <div className="h-72 w-60 bg-[url('/ala.jpg')] bg-cover bg-center relative"  >
-              <div className='font-type  absolute bg-white p-3' >
-                <h2 className='text-4xl font-black text-slate-800' >14</h2>
-                <p className='text-slate-800 font-bold' >DEC 2022</p>
-              </div>
-        </div>
-        <p>Virtual by Jessy Howls</p>
-        <h2 className="font-type font-semibold text-2xl" >SOCIAL MEDIA MARKETING</h2>
-
-      </div>
 
       
 
