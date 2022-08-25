@@ -5,16 +5,18 @@ const Navbar = () => {
 
 
   const navLinks = <>
-      <li>Home</li>
-      <li>Gaming</li>
-      <li>Programming</li>
+      <li className='cursor-pointer hover:text-main transition-all' >Home</li>
+      <li className='cursor-pointer hover:text-main transition-all' >Gaming</li>
+      <li className='cursor-pointer hover:text-main transition-all' >Programming</li>
   </>
 
 
 
 
     return (
-        <div className="navbar  py-3 bg-base-100">
+      <div className='fixed w-full bg-base-100'>
+        <div className="navbar max-w-7xl  py-5 mx-auto ">
+   
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex="0" className="btn btn-ghost lg:hidden">
@@ -24,7 +26,7 @@ const Navbar = () => {
           {navLinks}
             </ul>
           </div>
-          <Link href={'/'}><span className="text-4xl tracking-wider font-display font-black">GEEK HIVE</span></Link>
+          <Link href={'/'}><span className="text-4xl tracking-wider font-display font-black hover:text-main transition-all cursor-pointer">GEEK HIVE</span></Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal font-type text-xl tracking-wide font-bold p-0 gap-8">
@@ -32,8 +34,10 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn px-10 text-lg font-display hover:bg-main hover:text-slate-800">Login</a>
+          <a className="btn px-10 text-lg font-display hover:bg-main hover:text-slate-800 className='cursur' ">Login</a>
         </div>
+    
+      </div>
       </div>
     );
 };

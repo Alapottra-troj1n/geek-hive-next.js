@@ -10,6 +10,7 @@ module.exports = {
         main: "#B8F64F"
       }
     },
+   
     fontFamily: {
       'display': "'Titillium Web'",
       'type': 'Syne'
