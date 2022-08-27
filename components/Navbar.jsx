@@ -8,6 +8,7 @@ const Navbar = () => {
       <li className='cursor-pointer hover:text-main transition-all' >Home</li>
       <li className='cursor-pointer hover:text-main transition-all' >Gaming</li>
       <li className='cursor-pointer hover:text-main transition-all' >Programming</li>
+      <li className='cursor-pointer hover:text-main transition-all' >Misc</li>
   </>
 
 
