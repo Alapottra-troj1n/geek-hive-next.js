@@ -3,7 +3,7 @@ import React from 'react';
 
 const BlogPost = () => {
   return (
-    <div className="flex flex-col gap-2 cursor-pointer" >
+    <div className="flex flex-col gap-2 cursor-pointer transition-all" >
       <div>
         <div className="relative h-72 w-60" >
           <Image alt='' src={'/ala.jpg'} layout="fill" objectFit='cover' />
@@ -15,7 +15,7 @@ const BlogPost = () => {
 
       </div>
       <p>Virtual by Jessy Howls</p>
-      <h2 className="font-type font-semibold text-2xl" >MOBILE GAMING IS FUTURE</h2>
+      <h2 className="font-type font-semibold text-2xl hover:text-main " >MOBILE GAMING IS FUTURE</h2>
 
     </div>
   );
