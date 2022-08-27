@@ -11,7 +11,7 @@ const Footer = () => {
 
    <div>
           <h2 className="font-type text-3xl font-black text-main my-3" >GEEK HIVE</h2>
-          <p>MY FULLSTACK BLOG PROJECT<br/>THOUGHTS RELATED TO CODING AND GAMING</p>
+          <p className='font-type font-bold' >GEEK HIVE | MY FULLSTACK BLOG PROJECT</p>
         </div> 
 
         <div >

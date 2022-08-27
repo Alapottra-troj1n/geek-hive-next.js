@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 const BlogPost = () => {
@@ -16,7 +17,7 @@ const BlogPost = () => {
 
      <div className="flex flex-col items-center lg:items-start">
      <p>Virtual by Jessy Howls</p>
-      <h2 className="font-type font-bold text-2xl hover:text-main cursor-pointer transition-all" >MOBILE GAMING IS FUTURE</h2>
+      <Link href={'/post/this-is-a-post'} ><h2 className="font-type font-bold text-2xl hover:text-main cursor-pointer transition-all" >MOBILE GAMING IS FUTURE</h2></Link>
      </div>
 
     </div>

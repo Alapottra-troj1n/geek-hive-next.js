@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 const smallPost = () => {
@@ -9,7 +10,7 @@ const smallPost = () => {
             </div>
             <div>
             <p className="font-display text-slate-500" >14 Dec / by Alapottra</p>
-            <h2 className="font-bold font-display leading-6 text-slate-700 text-2xl hover:text-main cursor-pointer transition-all" >MLBB IS NOW DOMINATING THE GAMING MARKET</h2>
+            <Link href={'/post/this-is-a-post'}><h2 className="font-bold font-display leading-6 text-slate-700 text-2xl hover:text-main cursor-pointer transition-all" >MLBB IS NOW DOMINATING THE GAMING MARKET</h2></Link>
             </div>
         </div>
     );
