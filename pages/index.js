@@ -1,7 +1,5 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import BlogPost from '../components/blogPost'
-import '../styles/home.module.css'
+import BlogPost from './components/blogPost'
 
 
 export default function Home() {
