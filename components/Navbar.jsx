@@ -14,7 +14,7 @@ const Navbar = () => {
 
 
     return (
-      <div className='fixed w-full bg-stone-900 text-white'>
+      <div className='fixed w-full bg-stone-900 text-white z-50'>
         <div className="navbar max-w-7xl  py-5 mx-auto ">
    
         <div className="navbar-start">

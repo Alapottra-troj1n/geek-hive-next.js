@@ -1,5 +1,6 @@
-import Head from 'next/head'
-import BlogPost from './components/blogPost'
+import Head from 'next/head';
+import BlogPost from '../components/blogPost';
+import SmallPost from '../components/SmallPost'
 
 
 export default function Home() {
@@ -33,7 +34,7 @@ export default function Home() {
       <div>
       <h2 className="text-center font-type font-black text-2xl pb-10 pt-20 " >RECENT POSTS</h2>
 
-        <div className="pb-20 grid grid-cols-4 items-center max-w-7xl mx-auto ">
+        <div className="pb-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 max-w-7xl mx-auto gap-10">
 
           <BlogPost />
           <BlogPost />
@@ -48,21 +49,31 @@ export default function Home() {
 
       <div className="py-20 bg-white ">
 
-        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  max-w-7xl mx-auto" >
+        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3  gap-20 max-w-7xl  mx-auto" >
 
-          <div className='flex justify-center'>
+          <div className='flex flex-col items-center justify-center'>
             <span className="font-extrabold text-md bg-slate-800 px-6 py-1 text-main font-type">GAMING </span>
-
+           
+    
+           <SmallPost/>
+           <SmallPost/>
+           <SmallPost/>
+   
+         
           </div>
 
-          <div className='flex justify-center'>
+          <div className='flex flex-col items-center  justify-center'>
             <span className=" font-extrabold text-md bg-slate-800 px-6 py-1 text-main font-type">PROGRAMMING</span>
-
+            <SmallPost/>
+            <SmallPost/>
+            <SmallPost/>
           </div>
 
-          <div className='flex justify-center'>
+          <div className='flex flex-col items-center  justify-center'>
             <span className=" font-extrabold text-md bg-slate-800 px-6 py-1 text-main font-type">MISC</span>
-
+            <SmallPost/>
+            <SmallPost/>
+            <SmallPost/>
           </div>
 
 
