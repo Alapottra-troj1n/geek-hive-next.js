@@ -1,9 +1,25 @@
 import React, { useState } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 
-const LoginPage = () => {
+const LoginPage = ({setSigninVisible}) => {
 
     const [page, setPage] = useState('signin')
+
+
+    const signIn = (e) => {
+        e.preventDefault();
+    }
+
+    const signUp = (e) => {
+        e.preventDefault();
+    }
+
+
+
+
+
+
+
 
     if (page === 'signup') {
 
@@ -13,11 +29,11 @@ const LoginPage = () => {
                 <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30" >
 
                     <div className="p-16 bg-slate-700 border-2 border-main">
-                        <div className="absolute top-2 right-3" ><AiOutlineClose className="text-main text-xl cursor-pointer " /></div>
+                        <div className="absolute top-2 right-3" ><AiOutlineClose onClick={() => setSigninVisible(false)} className="text-main text-xl cursor-pointer " /></div>
                         <div>
                             <h2 className='font-type font-black text-center pb-7 text-3xl' >SIGN UP</h2>
                         </div>
-                        <form className="flex flex-col w-80 gap-4">
+                        <form onSubmit={signUp} className="flex flex-col w-80 gap-4">
 
                             <input type="email" placeholder="Email" name='signup-email' className="input w-full border-2 focus:border-main bg-white" />
                             <input type="text" placeholder="Username" name='signup-username' className="input w-full border-2 focus:border-main bg-white" />
@@ -47,11 +63,11 @@ const LoginPage = () => {
         <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30" >
 
             <div className="p-16 bg-slate-700 border-2 border-main">
-                <div className="absolute top-2 right-3" ><AiOutlineClose className="text-main text-xl cursor-pointer " /></div>
+                <div className="absolute top-2 right-3" ><AiOutlineClose onClick={() => setSigninVisible(false)} className="text-main text-xl cursor-pointer " /></div>
                 <div>
                     <h2 className='font-type font-black text-center pb-7 text-3xl' >SIGN IN</h2>
                 </div>
-                <form className="flex flex-col w-80 gap-4">
+                <form onSubmit={signIn} className="flex flex-col w-80 gap-4">
 
                     <input type="email" placeholder="Email" name='login-email' className="input w-full border-2 focus:border-main bg-white" />
                     <input type="password" placeholder="Password" name='login-password' className="input w-full border-2 focus:border-main bg-white" />

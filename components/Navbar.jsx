@@ -1,8 +1,11 @@
 import Link from 'next/link';
 import React from 'react';
 
-const Navbar = () => {
+const Navbar = ({setSigninVisible, signinVisible}) => {
 
+  const setSigninVisibleFunc = () => {
+    setSigninVisible(!signinVisible);
+  }
 
   const navLinks = <>
       <li className='cursor-pointer hover:text-main transition-all' >Home</li>
@@ -35,7 +38,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className=" px-7 py-1 transition-all font-semibold font-type border-main text-lg  bg-main hover:border-main border-2 text-black hover:bg-stone-900 cursor-pointer hover:text-white  ">LOGIN</a>
+          <button onClick={() => setSigninVisibleFunc()} className=" px-7 py-1 transition-all font-semibold font-type border-main text-lg  bg-main hover:border-main border-2 text-black hover:bg-stone-900 cursor-pointer hover:text-white  ">LOGIN</button>
         </div>
     
       </div>

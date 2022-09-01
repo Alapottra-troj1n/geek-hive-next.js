@@ -4,7 +4,7 @@ import LoginPage from '../components/LoginPage';
 import SmallPost from '../components/SmallPost'
 
 
-export default function Home() {
+export default function Home({signinVisible,setSigninVisible}) {
   return (
     <div >
       <Head>
@@ -36,7 +36,7 @@ export default function Home() {
       <div>
         {/* LOGIN */}
 
-    <LoginPage/>
+    {signinVisible && <LoginPage setSigninVisible={setSigninVisible} />}
 
 
       </div>
