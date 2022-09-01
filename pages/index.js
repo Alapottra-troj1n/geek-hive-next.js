@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import BlogPost from '../components/blogPost';
+import LoginPage from '../components/LoginPage';
 import SmallPost from '../components/SmallPost'
 
 
@@ -31,8 +32,21 @@ export default function Home() {
       </div>
 
 
+
       <div>
-      <h2 className="text-center font-type font-black text-2xl pb-10 pt-20 " >RECENT POSTS</h2>
+        {/* LOGIN */}
+
+    <LoginPage/>
+
+
+      </div>
+
+
+
+
+
+      <div>
+        <h2 className="text-center font-type font-black text-2xl pb-10 pt-20 " >RECENT POSTS</h2>
 
         <div className="pb-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 max-w-7xl mx-auto gap-10">
 
@@ -53,27 +67,27 @@ export default function Home() {
 
           <div className='flex flex-col items-center justify-center'>
             <span className="font-extrabold text-md bg-slate-800 px-6 py-1 text-main font-type">GAMING </span>
-           
-    
-           <SmallPost/>
-           <SmallPost/>
-           <SmallPost/>
-   
-         
+
+
+            <SmallPost />
+            <SmallPost />
+            <SmallPost />
+
+
           </div>
 
           <div className='flex flex-col items-center  justify-center'>
             <span className=" font-extrabold text-md bg-slate-800 px-6 py-1 text-main font-type">PROGRAMMING</span>
-            <SmallPost/>
-            <SmallPost/>
-            <SmallPost/>
+            <SmallPost />
+            <SmallPost />
+            <SmallPost />
           </div>
 
           <div className='flex flex-col items-center  justify-center'>
             <span className=" font-extrabold text-md bg-slate-800 px-6 py-1 text-main font-type">MISC</span>
-            <SmallPost/>
-            <SmallPost/>
-            <SmallPost/>
+            <SmallPost />
+            <SmallPost />
+            <SmallPost />
           </div>
 
 
