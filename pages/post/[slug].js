@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React from 'react';
-import BlogPost from '../../components/BlogPost'
+import BlogPostComponent from '../../components/BlogPostComponent'
 
 const SinglePost = () => {
     const router = useRouter();
@@ -67,10 +67,10 @@ const SinglePost = () => {
 
 
                    <div className="grid grid-cols-4">
-                   <BlogPost/>
-                   <BlogPost/>
-                   <BlogPost/>
-                   <BlogPost/>
+                   <BlogPostComponent/>
+                   <BlogPostComponent/>
+                   <BlogPostComponent/>
+                   <BlogPostComponent/>
                    </div>
 
             </div>

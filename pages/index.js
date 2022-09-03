@@ -1,10 +1,14 @@
 import Head from 'next/head';
-import BlogPost from '../components/blogPost';
+import BlogPostComponent from '../components/BlogPostComponent';
 import LoginPage from '../components/LoginPage';
 import SmallPost from '../components/SmallPost'
+import connectDb from '../lib/connectDb';
 
 
-export default function Home({signinVisible,setSigninVisible}) {
+export default function Home({ signinVisible, setSigninVisible, data }) {
+
+  console.log(data);
+
   return (
     <div >
       <Head>
@@ -36,7 +40,7 @@ export default function Home({signinVisible,setSigninVisible}) {
       <div>
         {/* LOGIN */}
 
-    {signinVisible && <LoginPage setSigninVisible={setSigninVisible} />}
+        {signinVisible && <LoginPage setSigninVisible={setSigninVisible} />}
 
 
       </div>
@@ -50,10 +54,10 @@ export default function Home({signinVisible,setSigninVisible}) {
 
         <div className="pb-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 max-w-7xl mx-auto gap-10">
 
-          <BlogPost />
-          <BlogPost />
-          <BlogPost />
-          <BlogPost />
+          <BlogPostComponent />
+          <BlogPostComponent />
+          <BlogPostComponent />
+          <BlogPostComponent />
 
 
 
@@ -105,4 +109,19 @@ export default function Home({signinVisible,setSigninVisible}) {
 
     </div>
   )
+}
+
+
+export async function getStaticProps(context) {
+
+
+  const db = await connectDb();
+  const allPosts = await db.collection("blogposts").find({}).toArray();
+  console.log(allPosts);
+
+
+
+  return {
+    props: {data : JSON.parse(JSON.stringify(allPosts))}, // will be passed to the page component as props
+  }
 }
