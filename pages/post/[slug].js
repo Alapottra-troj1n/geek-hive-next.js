@@ -1,11 +1,27 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import BlogPostComponent from '../../components/BlogPostComponent'
+import connectDb from '../../lib/connectDb';
 
-const SinglePost = () => {
+const SinglePost = ({data}) => {
     const router = useRouter();
     const {slug} = router.query;
+
+    const [shuffledData,setShuffledData] = useState([])
+
+
+    useEffect(() =>{
+
+        const shuffled = [...data].sort(() => 0.5 - Math.random());
+        console.log(shuffled);
+    
+        setShuffledData(shuffled);
+    
+    
+    
+      }
+        ,[])
 
 
     return (
@@ -67,10 +83,7 @@ const SinglePost = () => {
 
 
                    <div className="grid grid-cols-4">
-                   <BlogPostComponent/>
-                   <BlogPostComponent/>
-                   <BlogPostComponent/>
-                   <BlogPostComponent/>
+                   {shuffledData.slice(0,4).map(post => <BlogPostComponent key={post._id} post={post} />)}
                    </div>
 
             </div>
@@ -87,5 +100,36 @@ const SinglePost = () => {
         </div>
     );
 };
+
+
+
+
+
+
+
+export async function getServerSideProps(context) {
+
+
+    const db = await connectDb();
+    const allPosts = await db.collection("blogposts").find({}).toArray();
+    console.log(allPosts);
+  
+  
+  
+    return {
+      props: {data : JSON.parse(JSON.stringify(allPosts))}, // will be passed to the page component as props
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
 
 export default SinglePost;

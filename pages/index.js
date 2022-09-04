@@ -1,4 +1,6 @@
 import Head from 'next/head';
+import { useEffect, useState } from 'react';
+
 import BlogPostComponent from '../components/BlogPostComponent';
 import LoginPage from '../components/LoginPage';
 import SmallPost from '../components/SmallPost'
@@ -7,7 +9,26 @@ import connectDb from '../lib/connectDb';
 
 export default function Home({ signinVisible, setSigninVisible, data }) {
 
-  console.log(data);
+  const [shuffledData, setShuffledData] = useState([])
+
+  const gamingPosts = data.filter(post => post.category === 'gaming');
+  const programmingPosts = data.filter(post => post.category === 'programming');
+  const miscPosts = data.filter(post => post.category === 'misc');
+
+
+
+  useEffect(() =>{
+
+    const shuffled = [...data].sort(() => 0.5 - Math.random());
+    console.log(shuffled);
+
+    setShuffledData(shuffled);
+
+
+
+  }
+    ,[])
+ 
 
   return (
     <div >
@@ -50,14 +71,11 @@ export default function Home({ signinVisible, setSigninVisible, data }) {
 
 
       <div>
-        <h2 className="text-center font-type font-black text-2xl pb-10 pt-20 " >RECENT POSTS</h2>
+        <h2 className="text-center font-type font-black text-2xl pb-10 pt-20 " >RANDOM POSTS</h2>
 
         <div className="pb-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 max-w-7xl mx-auto gap-10">
 
-          <BlogPostComponent />
-          <BlogPostComponent />
-          <BlogPostComponent />
-          <BlogPostComponent />
+        {shuffledData.slice(0,4).map(post => <BlogPostComponent post={post} key={post._id} />)}
 
 
 
@@ -67,31 +85,25 @@ export default function Home({ signinVisible, setSigninVisible, data }) {
 
       <div className="py-20 bg-white ">
 
-        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3  gap-20 max-w-7xl  mx-auto" >
+        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3  max-w-7xl  mx-auto" >
 
           <div className='flex flex-col items-center justify-center'>
             <span className="font-extrabold text-md bg-slate-800 px-6 py-1 text-main font-type">GAMING </span>
 
 
-            <SmallPost />
-            <SmallPost />
-            <SmallPost />
+           {gamingPosts.map(post => <SmallPost postData={post} key={post._id} />  )}
 
 
           </div>
 
           <div className='flex flex-col items-center  justify-center'>
             <span className=" font-extrabold text-md bg-slate-800 px-6 py-1 text-main font-type">PROGRAMMING</span>
-            <SmallPost />
-            <SmallPost />
-            <SmallPost />
+            {programmingPosts.map(post => <SmallPost postData={post} key={post._id} />  )}
           </div>
 
           <div className='flex flex-col items-center  justify-center'>
             <span className=" font-extrabold text-md bg-slate-800 px-6 py-1 text-main font-type">MISC</span>
-            <SmallPost />
-            <SmallPost />
-            <SmallPost />
+            {miscPosts.map(post => <SmallPost postData={post} key={post._id} />  )}
           </div>
 
 
@@ -112,7 +124,7 @@ export default function Home({ signinVisible, setSigninVisible, data }) {
 }
 
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
 
 
   const db = await connectDb();
