@@ -1,4 +1,3 @@
-import { data } from 'autoprefixer';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -16,7 +15,7 @@ const smallPost = ({postData}) => {
             </div>
             <div>
             <p className="font-display text-sm text-slate-500" >{date.toString().slice(3,15)} by {postData.author}</p>
-            <Link href={'/post/this-is-a-post'}><h2 className="font-bold font-display max-w-lg leading-6 text-slate-700 text-lg hover:text-main cursor-pointer transition-all" >{postData.title.slice(0,30)}..</h2></Link>
+            <Link href={`/post/${postData._id}`}><h2 className="font-bold font-display max-w-lg leading-6 text-slate-700 text-lg hover:text-main cursor-pointer transition-all" >{postData.title.slice(0,30)}..</h2></Link>
             </div>
         </div>
     );

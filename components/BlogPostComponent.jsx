@@ -17,7 +17,7 @@ const BlogPost = ({post}) => {
 
      <div className="flex flex-col items-center lg:items-start">
      <p>Virtual by {post.author}</p>
-      <Link href={'/post/this-is-a-post'} ><h2 className="font-type font-bold text-2xl hover:text-main cursor-pointer transition-all" >{post.title}</h2></Link>
+      <Link href={`post/${post._id}`} ><h2 className="font-type font-bold text-2xl hover:text-main cursor-pointer transition-all" >{post.title}</h2></Link>
      </div>
 
     </div>

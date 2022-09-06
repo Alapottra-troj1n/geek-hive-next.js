@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
-
 import BlogPostComponent from '../components/BlogPostComponent';
 import LoginPage from '../components/LoginPage';
 import SmallPost from '../components/SmallPost'
@@ -20,14 +19,13 @@ export default function Home({ signinVisible, setSigninVisible, data }) {
   useEffect(() =>{
 
     const shuffled = [...data].sort(() => 0.5 - Math.random());
-    console.log(shuffled);
 
     setShuffledData(shuffled);
 
 
 
   }
-    ,[])
+    ,[data])
  
 
   return (
@@ -129,7 +127,6 @@ export async function getServerSideProps(context) {
 
   const db = await connectDb();
   const allPosts = await db.collection("blogposts").find({}).toArray();
-  console.log(allPosts);
 
 
 

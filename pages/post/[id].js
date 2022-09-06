@@ -1,27 +1,13 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react';
-import BlogPostComponent from '../../components/BlogPostComponent'
 import connectDb from '../../lib/connectDb';
+const { ObjectId } = require("mongodb");
 
 const SinglePost = ({data}) => {
     const router = useRouter();
-    const {slug} = router.query;
+    const {id} = router.query;
 
-    const [shuffledData,setShuffledData] = useState([])
-
-
-    useEffect(() =>{
-
-        const shuffled = [...data].sort(() => 0.5 - Math.random());
-        console.log(shuffled);
-    
-        setShuffledData(shuffled);
-    
-    
-    
-      }
-        ,[])
+    console.log(data);
 
 
     return (
@@ -60,7 +46,7 @@ const SinglePost = ({data}) => {
 
                     <div className='bg-slate-600 max-w-2xl grid grid-cols-2'>
                         <div className='h-60 relative'>
-                        <Image src={'/ala.jpg'} layout='fill' objectFit='cover' />
+                        <Image src={'/ala.jpg'} layout='fill' alt='' objectFit='cover' />
                         <div className='absolute top-0 px-9 py-2 bg-slate-800 text-white font-type font-black ' >AUTHOR</div>
                         </div>
                         <div className='flex justify-center items-center flex-col text-center text-white px-5'>
@@ -83,7 +69,7 @@ const SinglePost = ({data}) => {
 
 
                    <div className="grid grid-cols-4">
-                   {shuffledData.slice(0,4).map(post => <BlogPostComponent key={post._id} post={post} />)}
+                 
                    </div>
 
             </div>
@@ -102,22 +88,28 @@ const SinglePost = ({data}) => {
 };
 
 
+export default SinglePost;
+
+export async function getStaticPaths() {
+        const db = await connectDb();
+        const allPosts = await db.collection('blogposts').find({}).toArray();
+
+        const paths = allPosts.map(post => {
+            return {params: {
+                id: post._id.toString()
+            }}
+        })
+
+        
 
 
 
-
-
-export async function getServerSideProps(context) {
-
-
-    const db = await connectDb();
-    const allPosts = await db.collection("blogposts").find({}).toArray();
-    console.log(allPosts);
-  
-  
-  
     return {
-      props: {data : JSON.parse(JSON.stringify(allPosts))}, // will be passed to the page component as props
+      paths,
+      fallback: 'blocking', // can also be true or 'blocking'
+
+
+
     }
   }
 
@@ -125,11 +117,30 @@ export async function getServerSideProps(context) {
 
 
 
+export async function getStaticProps(context) {
+
+   
+
+    const {id} = context.params;
+
+ 
+        const db = await connectDb();
+        const post = await db.collection('blogposts').find({_id: ObjectId(id)}).toArray();
+
+        if (!post) {
+            return {
+              notFound: true,
+            };
+          }
 
 
+  
 
+    return {
+      props: {data : JSON.parse(JSON.stringify(post))},
+       // will be passed to the page component as props
+       revalidate:18000,
+    }
+  }
 
-
-
-
-export default SinglePost;
+  //Incremental Static Regeneration
