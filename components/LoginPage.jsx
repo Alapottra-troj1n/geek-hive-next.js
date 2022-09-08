@@ -1,13 +1,23 @@
 import React, { useState } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 
+import {signIn, useSession} from 'next-auth/react';
+
 const LoginPage = ({setSigninVisible}) => {
 
-    const [page, setPage] = useState('signin')
+    const [page, setPage] = useState('signin');
 
 
-    const signIn = (e) => {
+  
+
+
+    const signInWithGithub = (e) => {
         e.preventDefault();
+
+        signIn('github', {
+            callbackUrl: 'http://localhost:3000/'
+        } )
+
     }
 
     const signUp = (e) => {
@@ -76,6 +86,12 @@ const LoginPage = ({setSigninVisible}) => {
                 </form>
                 <div className="pt-2">
                     <h2 className='font-display font-bold'>New to Geek Hive ? <span onClick={() => setPage('signup')} className='text-white cursor-pointer hover:text-main transition' >Create a Account</span> </h2>
+                </div>
+
+            
+
+                <div className='mt-3 text-center'>
+                    <button onClick={signInWithGithub}>Sign In with Github</button>
                 </div>
 
             </div>

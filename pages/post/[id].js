@@ -6,7 +6,6 @@ const { ObjectId } = require("mongodb");
 
 const SinglePost = ({data, random}) => {
     const router = useRouter();
-    const {id} = router.query;
     const timestamp = data[0]._id.toString().substring(0,8);
     const date = new Date( parseInt( timestamp, 16 ) * 1000 );
     console.log(random);
