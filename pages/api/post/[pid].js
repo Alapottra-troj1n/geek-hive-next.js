@@ -12,6 +12,7 @@ export default async function handler(req, res) {
       res.send({success: true, data : post});
 
     } catch (error) {
+      res.send({success: false, data : 'something went wrong'});
       console.log(error);
     }
   

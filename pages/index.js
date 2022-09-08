@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import BlogPostComponent from '../components/BlogPostComponent';
 import LoginPage from '../components/LoginPage';
@@ -69,11 +70,11 @@ export default function Home({ signinVisible, setSigninVisible, data }) {
 
 
       <div>
-        <h2 className="text-center font-type font-black text-2xl pb-10 pt-20 " >RANDOM POSTS</h2>
+        <h2 className="text-center font-type font-black text-2xl pb-10 pt-20 " >POPULAR POSTS</h2>
 
         <div className="pb-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 max-w-7xl mx-auto gap-10">
 
-        {shuffledData.slice(0,4).map(post => <BlogPostComponent post={post} key={post._id} />)}
+        {shuffledData?.slice(0,4).map(post => <BlogPostComponent post={post} key={post._id} />)}
 
 
 
@@ -89,19 +90,19 @@ export default function Home({ signinVisible, setSigninVisible, data }) {
             <span className="font-extrabold text-md bg-slate-800 px-6 py-1 text-main font-type">GAMING </span>
 
 
-           {gamingPosts.map(post => <SmallPost postData={post} key={post._id} />  )}
+           {gamingPosts?.map(post => <SmallPost postData={post} key={post._id} />  )}
 
 
           </div>
 
           <div className='flex flex-col items-center  justify-center'>
             <span className=" font-extrabold text-md bg-slate-800 px-6 py-1 text-main font-type">PROGRAMMING</span>
-            {programmingPosts.map(post => <SmallPost postData={post} key={post._id} />  )}
+            {programmingPosts?.map(post => <SmallPost postData={post} key={post._id} />  )}
           </div>
 
           <div className='flex flex-col items-center  justify-center'>
             <span className=" font-extrabold text-md bg-slate-800 px-6 py-1 text-main font-type">MISC</span>
-            {miscPosts.map(post => <SmallPost postData={post} key={post._id} />  )}
+            {miscPosts?.map(post => <SmallPost postData={post} key={post._id} />  )}
           </div>
 
 
