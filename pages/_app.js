@@ -2,7 +2,8 @@ import { useState } from 'react';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import '../styles/globals.css';
-import {SessionProvider} from 'next-auth/react'
+import { SessionProvider } from 'next-auth/react'
+import AuthWrapper from '../components/AuthWrapper';
 
 function MyApp({ Component, pageProps }) {
 
@@ -11,12 +12,11 @@ function MyApp({ Component, pageProps }) {
 
   return <>
     <SessionProvider session={pageProps.session} >
-
-
-      <Navbar setSigninVisible={setSigninVisible} signinVisible={signinVisible} />
-      <Component signinVisible={signinVisible} setSigninVisible={setSigninVisible} {...pageProps} />
-      <Footer />
-
+      <AuthWrapper>
+        <Navbar setSigninVisible={setSigninVisible} signinVisible={signinVisible} />
+        <Component signinVisible={signinVisible} setSigninVisible={setSigninVisible} {...pageProps} />
+        <Footer />
+      </AuthWrapper>
     </SessionProvider>
   </>
 

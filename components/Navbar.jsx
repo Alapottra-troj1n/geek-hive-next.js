@@ -25,6 +25,7 @@ const Navbar = ({ setSigninVisible, signinVisible }) => {
     <li className='cursor-pointer hover:text-main transition-all' >Gaming</li>
     <li className='cursor-pointer hover:text-main transition-all' >Programming</li>
     <li className='cursor-pointer hover:text-main transition-all' >Misc</li>
+   {status ==='authenticated' &&  <li className='cursor-pointer hover:text-main transition-all' >My Account</li>}
   </>
 
 

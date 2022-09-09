@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 
 import {signIn, useSession} from 'next-auth/react';
+import { redirect } from 'next/dist/server/api-utils';
 
 const LoginPage = ({setSigninVisible}) => {
 
     const [page, setPage] = useState('signin');
 
+    
 
   
 
@@ -22,6 +24,20 @@ const LoginPage = ({setSigninVisible}) => {
 
     const signUp = (e) => {
         e.preventDefault();
+    
+    }
+
+    const handleSignIn = async(e) => {
+        e.preventDefault();
+        const email = e.target.loginEmail.value;
+        const pass = e.target.loginPassword.value;
+        const res = await signIn('credentials', {
+            email: email,
+            password: pass,
+            redirect: false
+        })
+
+        console.log(res)
     }
 
 
@@ -45,7 +61,7 @@ const LoginPage = ({setSigninVisible}) => {
                         </div>
                         <form onSubmit={signUp} className="flex flex-col w-80 gap-4">
 
-                            <input type="email" placeholder="Email" name='signup-email' className="input w-full border-2 focus:border-main bg-white" />
+                            <input type="email" placeholder="Email" name='signup-mail' className="input w-full border-2 focus:border-main bg-white" />
                             <input type="text" placeholder="Username" name='signup-username' className="input w-full border-2 focus:border-main bg-white" />
                            <div>
                            <input type="password"  placeholder="Password" name='signup-password' className="input w-full border-2 focus:border-main bg-white" />
@@ -77,10 +93,10 @@ const LoginPage = ({setSigninVisible}) => {
                 <div>
                     <h2 className='font-type font-black text-center pb-7 text-3xl' >SIGN IN</h2>
                 </div>
-                <form onSubmit={signIn} className="flex flex-col w-80 gap-4">
+                <form onSubmit={handleSignIn} className="flex flex-col w-80 gap-4">
 
-                    <input type="email" placeholder="Email" name='login-email' className="input w-full border-2 focus:border-main bg-white" />
-                    <input type="password" placeholder="Password" name='login-password' className="input w-full border-2 focus:border-main bg-white" />
+                    <input type="email" placeholder="Email" name='loginEmail' className="input w-full border-2 focus:border-main bg-white" />
+                    <input type="password" placeholder="Password" name='loginPassword' className="input w-full border-2 focus:border-main bg-white" />
                     <input type="submit" value="LOGIN" className='px-2 bg-main font-type font-black py-3 text-black rounded-lg cursor-pointer' />
 
                 </form>
