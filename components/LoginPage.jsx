@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 
-import {signIn, useSession} from 'next-auth/react';
-import { redirect } from 'next/dist/server/api-utils';
+import { signIn, useSession } from 'next-auth/react';
 
-const LoginPage = ({setSigninVisible}) => {
+const LoginPage = ({ setSigninVisible }) => {
 
     const [page, setPage] = useState('signin');
 
-    
+    const [error, setError] = useState('')
 
-  
+
+
+
 
 
     const signInWithGithub = (e) => {
@@ -18,31 +19,34 @@ const LoginPage = ({setSigninVisible}) => {
 
         signIn('github', {
             callbackUrl: 'http://localhost:3000/'
-        } )
+        })
 
     }
 
     const signUp = (e) => {
         e.preventDefault();
-    
+
     }
 
-    const handleSignIn = async(e) => {
+    const handleSignIn = async (e) => {
         e.preventDefault();
         const email = e.target.loginEmail.value;
         const pass = e.target.loginPassword.value;
-        const res = await signIn('credentials', {
+       const res =  await signIn('credentials', {
             email: email,
             password: pass,
             redirect: false
         })
+        //if res.ok == true that's mean all good.. if its false there will be a res.error with the error message;
+        console.log(res);
 
-        console.log(res)
+
+
     }
 
 
 
-    const handleSignUp = async(e) => {
+    const handleSignUp = async (e) => {
 
         e.preventDefault();
 
@@ -51,9 +55,38 @@ const LoginPage = ({setSigninVisible}) => {
         const signupPassword = e.target.signupPassword.value;
         const signupConfirmPassword = e.target.signupConfirmPassword.value;
 
-        
+        if (signupPassword !== signupConfirmPassword) {
+            setError('Passwords do not match');
+            return;
+
+        }
+
+        const settings = {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email: signupEmail, password: signupPassword, username: signupUsername })
+        };
+
+        const res = await fetch('http://localhost:3000/api/signup', settings);
+        const data = await res.json();
+
+        if (data.success) {
+
+            const res = await signIn('credentials', {
+                email: signupEmail,
+                password: signupPassword,
+                redirect: true
+            })
+
+            //if user exists
 
 
+        }
+
+        setError('');
 
 
 
@@ -83,14 +116,15 @@ const LoginPage = ({setSigninVisible}) => {
 
                             <input type="email" placeholder="Email" name='signupEmail' className="input w-full border-2 focus:border-main bg-white" />
                             <input type="text" placeholder="Username" name='signupUsername' className="input w-full border-2 focus:border-main bg-white" />
-                           <div>
-                           <input type="password"  placeholder="Password" name='signupPassword' className="input w-full border-2 focus:border-main bg-white" />
-                           </div>
+                            <div>
+                                <input type="password" placeholder="Password" name='signupPassword' className="input w-full border-2 focus:border-main bg-white" />
+                            </div>
                             <input type="password" placeholder="Confirm Password" name='signupConfirmPassword' className="input w-full border-2 focus:border-main bg-white" />
                             <input type="submit" value="SIGN UP" className='px-2 cursor-pointer bg-main font-type font-black py-3 text-black rounded-lg' />
 
                         </form>
                         <div className="pt-2">
+                            <p className="text-center text-red-500">{error}</p>
                             <h2 className='font-display font-bold'>Already Have an Account ? <span onClick={() => setPage('signin')} className='text-white cursor-pointer hover:text-main transition' >Sign in</span> </h2>
                         </div>
 
@@ -124,7 +158,7 @@ const LoginPage = ({setSigninVisible}) => {
                     <h2 className='font-display font-bold'>New to Geek Hive ? <span onClick={() => setPage('signup')} className='text-white cursor-pointer hover:text-main transition' >Create a Account</span> </h2>
                 </div>
 
-            
+
 
                 <div className='mt-3 text-center'>
                     <button onClick={signInWithGithub}>Sign In with Github</button>
