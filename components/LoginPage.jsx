@@ -42,6 +42,26 @@ const LoginPage = ({setSigninVisible}) => {
 
 
 
+    const handleSignUp = async(e) => {
+
+        e.preventDefault();
+
+        const signupEmail = e.target.signupEmail.value;
+        const signupUsername = e.target.signupUsername.value;
+        const signupPassword = e.target.signupPassword.value;
+        const signupConfirmPassword = e.target.signupConfirmPassword.value;
+
+        
+
+
+
+
+
+
+    }
+
+
+
 
 
 
@@ -59,14 +79,14 @@ const LoginPage = ({setSigninVisible}) => {
                         <div>
                             <h2 className='font-type font-black text-center pb-7 text-3xl' >SIGN UP</h2>
                         </div>
-                        <form onSubmit={signUp} className="flex flex-col w-80 gap-4">
+                        <form onSubmit={handleSignUp} className="flex flex-col w-80 gap-4">
 
-                            <input type="email" placeholder="Email" name='signup-mail' className="input w-full border-2 focus:border-main bg-white" />
-                            <input type="text" placeholder="Username" name='signup-username' className="input w-full border-2 focus:border-main bg-white" />
+                            <input type="email" placeholder="Email" name='signupEmail' className="input w-full border-2 focus:border-main bg-white" />
+                            <input type="text" placeholder="Username" name='signupUsername' className="input w-full border-2 focus:border-main bg-white" />
                            <div>
-                           <input type="password"  placeholder="Password" name='signup-password' className="input w-full border-2 focus:border-main bg-white" />
+                           <input type="password"  placeholder="Password" name='signupPassword' className="input w-full border-2 focus:border-main bg-white" />
                            </div>
-                            <input type="password" placeholder="Confirm Password" name='signup-confirmpassword' className="input w-full border-2 focus:border-main bg-white" />
+                            <input type="password" placeholder="Confirm Password" name='signupConfirmPassword' className="input w-full border-2 focus:border-main bg-white" />
                             <input type="submit" value="SIGN UP" className='px-2 cursor-pointer bg-main font-type font-black py-3 text-black rounded-lg' />
 
                         </form>
