@@ -21,8 +21,8 @@ const Navbar = ({ setSigninVisible, signinVisible }) => {
   }
 
   const navLinks = <>
-    <li className='cursor-pointer hover:text-main transition-all' >Home</li>
-    <li className='cursor-pointer hover:text-main transition-all' >Gaming</li>
+    <Link href={'/'} ><li className='cursor-pointer hover:text-main transition-all' >Home</li></Link>
+    <Link href={'/gaming'} ><li className='cursor-pointer hover:text-main transition-all' >Gaming</li></Link>
     <li className='cursor-pointer hover:text-main transition-all' >Programming</li>
     <li className='cursor-pointer hover:text-main transition-all' >Misc</li>
    {status ==='authenticated' &&  <li className='cursor-pointer hover:text-main transition-all' >My Account</li>}
@@ -33,7 +33,7 @@ const Navbar = ({ setSigninVisible, signinVisible }) => {
 
   return (
     <div className='fixed w-full bg-stone-900 text-white z-50'>
-      <div className="navbar max-w-7xl  py-5 mx-auto ">
+      <div className="navbar max-w-7xl py-5 mx-auto ">
 
         <div className="navbar-start">
           <div className="dropdown">

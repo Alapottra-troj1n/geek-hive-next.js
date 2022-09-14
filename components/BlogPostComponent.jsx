@@ -6,7 +6,7 @@ const BlogPost = ({post}) => {
   return (
     <div className="flex flex-col gap-2 p-5" >
     <div className=" flex justify-center ">
-    <div className="relative h-72 w-72" >
+    <div className="relative h-72 w-full" >
           <Image alt='' src={post.img} layout="fill" objectFit='cover' />
           <div className='font-type  absolute bg-slate-600 p-3' >
             <h2 className='text-4xl font-black text-white' >14</h2>

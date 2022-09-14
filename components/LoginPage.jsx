@@ -23,10 +23,7 @@ const LoginPage = ({ setSigninVisible }) => {
 
     }
 
-    const signUp = (e) => {
-        e.preventDefault();
 
-    }
 
     const handleSignIn = async (e) => {
         e.preventDefault();
@@ -37,8 +34,17 @@ const LoginPage = ({ setSigninVisible }) => {
             password: pass,
             redirect: false
         })
+        if(res.error){
+            setError(res.error);
+        }
+        if(res.ok){
+
+            setError('')
+            setSigninVisible(false)
+
+        }
         //if res.ok == true that's mean all good.. if its false there will be a res.error with the error message;
-        console.log(res);
+       
 
 
 
@@ -155,6 +161,7 @@ const LoginPage = ({ setSigninVisible }) => {
 
                 </form>
                 <div className="pt-2">
+                    <p className="text-center text-red-500">{error}</p>
                     <h2 className='font-display font-bold'>New to Geek Hive ? <span onClick={() => setPage('signup')} className='text-white cursor-pointer hover:text-main transition' >Create a Account</span> </h2>
                 </div>
 
