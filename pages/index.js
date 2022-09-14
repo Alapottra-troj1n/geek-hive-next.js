@@ -123,7 +123,7 @@ export default function Home({ signinVisible, setSigninVisible, data }) {
 }
 
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
 
 
   const db = await connectDb();
@@ -132,6 +132,7 @@ export async function getServerSideProps(context) {
 
 
   return {
-    props: {data : JSON.parse(JSON.stringify(allPosts))}, // will be passed to the page component as props
+    props: {data : JSON.parse(JSON.stringify(allPosts))},
+    revalidate:18000, // will be passed to the page component as props
   }
 }
