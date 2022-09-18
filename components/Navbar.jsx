@@ -24,8 +24,8 @@ const Navbar = ({ setSigninVisible, signinVisible }) => {
     <Link href={'/'} ><li className='cursor-pointer hover:text-main transition-all' >Home</li></Link>
     <Link href={'/gaming'} ><li className='cursor-pointer hover:text-main transition-all' >Gaming</li></Link>
     <Link href={'/programming'} ><li className='cursor-pointer hover:text-main transition-all' >Programming</li></Link>
-    <li className='cursor-pointer hover:text-main transition-all' >Misc</li>
-   {status ==='authenticated' &&  <li className='cursor-pointer hover:text-main transition-all' >My Account</li>}
+    <Link href={'/misc'} ><li className='cursor-pointer hover:text-main transition-all' >Misc</li></Link>
+   {status ==='authenticated' && <Link href='/myaccount' ><li className='cursor-pointer hover:text-main transition-all' >My Account</li></Link>}
   </>
 
 

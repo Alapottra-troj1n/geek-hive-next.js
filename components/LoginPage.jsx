@@ -76,8 +76,11 @@ const LoginPage = ({ setSigninVisible }) => {
             body: JSON.stringify({ email: signupEmail, password: signupPassword, username: signupUsername })
         };
 
+      try{
         const res = await fetch('http://localhost:3000/api/signup', settings);
         const data = await res.json();
+
+        console.log(data);
 
         if (data.success) {
 
@@ -88,11 +91,19 @@ const LoginPage = ({ setSigninVisible }) => {
             })
 
             //if user exists
+            setError('');
 
+        }else if(!data.success){
+
+                setError(data.message)
 
         }
 
-        setError('');
+      
+      }catch(err){
+        console.log(err)
+
+      }
 
 
 
