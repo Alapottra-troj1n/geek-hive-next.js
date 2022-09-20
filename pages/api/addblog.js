@@ -8,7 +8,9 @@ export default async function handler(req, res) {
 
         const {title, imgUrl, category, tags, content} = req.body;
        
-        console.log(title, imgUrl, category, tags, content);
+      
+
+        res.send({title, imgUrl, category, tags, content});
       
       
      
