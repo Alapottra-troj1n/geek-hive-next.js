@@ -11,7 +11,7 @@ const smallPost = ({postData}) => {
     return (
         <div className="bg-white mt-5 grid grid-cols-1 lg:grid-cols-2 items-center p-3 ">
             <div className="relative h-44 w-44 " >
-                <Image src={postData.img} alt='' layout='fill' objectFit='cover'  />
+                <Image src={postData.img || '/placeholderpost.gif'} alt='' layout='fill' objectFit='cover'  />
             </div>
             <div>
             <p className="font-display text-sm text-slate-500" >{date.toString().slice(3,15)} by {postData.author}</p>

@@ -17,7 +17,7 @@ const SinglePost = ({data, random}) => {
 
            <div className="flex justify-center">
            <div className="h-[500px] w-[450px] relative">
-                <Image src={data[0].img} layout='fill' alt='' objectFit='cover' />
+                <Image src={data[0].img || '/placeholderpost.gif'} layout='fill' alt='' objectFit='cover' />
                 <div className="absolute bottom-0 p-2 bg-slate-900 px-8 font-type text-xl font-black text-white">
                     {data[0].category}
                 </div>

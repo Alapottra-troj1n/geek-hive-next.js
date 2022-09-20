@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { useSession } from 'next-auth/react';
 const Addblog = () => {
 
     const [category, setCategory] = useState('');
     const [content, setContent] = useState('');
+    const {data, status} = useSession();
+
+   const author = data.user.name;
 
 
 
@@ -22,16 +26,22 @@ const Addblog = () => {
             },
             body: JSON.stringify({
                 title: e.target.postTitle.value,
-                imgUrl: e.target.imgUrl.value,
+                img: e.target.imgUrl.value,
                 tags: e.target.tags.value,
                 category: category,
-                content: content
+                desc: content,
+                author: author
             })
         };
 
         const res = await fetch('http://localhost:3000/api/addblog', settings);
         const data = await res.json();
 
+        if(data.success) {
+            alert('Added blog successfully');
+            e.target.reset();
+
+        }
         console.log(data);
 
     }
@@ -64,7 +74,7 @@ const Addblog = () => {
                         </div>
 
                         <div className='w-96'>
-                            <label className='font-display text-lg font-bold' >Image Url</label>
+                            <label className='font-display text-lg font-bold' >Image Url (please use ImgBb)</label>
                             <input type="text" name='imgUrl' placeholder="https://i.ibb.co/1vd2zLq/chartjs-homepage.jpg" className="input bg-white input-bordered w-full " />
                         </div>
 
@@ -82,7 +92,7 @@ const Addblog = () => {
 
                         <div className='w-96'>
                             <label className='font-display text-lg font-bold' >Tags</label>
-                            <input type="text" name='tags' placeholder="gaming, apex legends, bloging" className="input bg-white input-bordered w-full " />
+                            <input type="text" name='tags' placeholder="gaming apex legends bloging" className="input bg-white input-bordered w-full " />
                         </div>
 
 
