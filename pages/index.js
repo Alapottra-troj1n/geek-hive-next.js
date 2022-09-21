@@ -90,19 +90,19 @@ export default function Home({ signinVisible, setSigninVisible, data }) {
             <span className="font-extrabold text-md bg-slate-800 px-6 py-1 text-main font-type">GAMING </span>
 
 
-           {gamingPosts?.map(post => <SmallPost postData={post} key={post._id} />  )}
+           {gamingPosts?.slice(0,3).map(post => <SmallPost postData={post} key={post._id} />  )}
 
 
           </div>
 
           <div className='flex flex-col items-center  justify-center'>
             <span className=" font-extrabold text-md bg-slate-800 px-6 py-1 text-main font-type">PROGRAMMING</span>
-            {programmingPosts?.map(post => <SmallPost postData={post} key={post._id} />  )}
+            {programmingPosts?.slice(0,3).map(post => <SmallPost postData={post} key={post._id} />  )}
           </div>
 
           <div className='flex flex-col items-center  justify-center'>
             <span className=" font-extrabold text-md bg-slate-800 px-6 py-1 text-main font-type">MISC</span>
-            {miscPosts?.map(post => <SmallPost postData={post} key={post._id} />  )}
+            {miscPosts?.slice(0,3).map(post => <SmallPost postData={post} key={post._id} />  )}
           </div>
 
 

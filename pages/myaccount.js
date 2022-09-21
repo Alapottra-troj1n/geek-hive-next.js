@@ -53,9 +53,8 @@ const MyAccount = ({ user }) => {
           <div className="flex justify-center">
 
             <div className="btn-group btn-group-horizontal">
-              <Link href={'/addblog'} ><button className="btn btn-active">Add a blog</button></Link>
-              <button className="btn">Account Settings</button>
-         
+              <Link href={'/addblog'} ><button className="btn ">Add a Blog</button></Link>
+              <Link  href={'/manage'} ><button className="btn ">Manage Blogs</button></Link>
             </div>
 
 
