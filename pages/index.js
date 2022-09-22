@@ -7,7 +7,7 @@ import SmallPost from '../components/SmallPost'
 import connectDb from '../lib/connectDb';
 
 
-export default function Home({ signinVisible, setSigninVisible, data }) {
+export default function Home({ data }) {
 
   const [shuffledData, setShuffledData] = useState([])
 
@@ -59,8 +59,6 @@ export default function Home({ signinVisible, setSigninVisible, data }) {
 
       <div>
         {/* LOGIN */}
-
-        {signinVisible && <LoginPage setSigninVisible={setSigninVisible} />}
 
 
       </div>

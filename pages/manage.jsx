@@ -26,7 +26,7 @@ export async function getServerSideProps(context) {
 
     const data = await getSession(context);
 
-    const userName = data.user.name;
+    const userName = data?.user?.name;
 
     const db = await connectDb();
     const userPosts = await db.collection("blogposts").find({author: userName}).toArray();
