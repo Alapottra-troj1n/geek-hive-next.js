@@ -1,25 +1,13 @@
 import React from 'react';
+import DeletePromt from './DeletePromt';
 
-const PostCard = ({data}) => {
+const PostCard = ({data,setDeletePromt,setPostDelete}) => {
   console.log(data)
+
+
   const handleDelete = async(e) => {
-
-    const settings = {
-      method: 'DELETE',
-      headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-      }
-    
-  };
-
-  const res = await fetch(`http://localhost:3000/api/deletepost?_id=${data._id}`, settings);
-  const d = await res.json();
-
-  console.log(d);
-
-
-
+    setDeletePromt(true)
+    setPostDelete(data)
   }
 
 
@@ -34,6 +22,7 @@ const PostCard = ({data}) => {
             <button className="btn btn-primary">Edit</button>
           </div>
         </div>
+     
       </div>
     );
 };

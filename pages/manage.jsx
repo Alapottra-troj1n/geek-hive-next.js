@@ -1,17 +1,23 @@
 import { getSession } from 'next-auth/react';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import DeletePromt from '../components/DeletePromt';
 import PostCard from '../components/PostCard';
 import connectDb from '../lib/connectDb';
 
-const Manage = ({data}) => {
-    console.log(data)
+const Manage = ({posts}) => {
+    const [data,setData] = useState(posts);
+    const [deletePromt, setDeletePromt] = useState(false);
+    const [postDelete, setPostDelete] = useState(null);
+
+   
+
     return (
         <div className=' py-36' >
             <h2 className='text-center font-type font-black text-4xl pb-28' >MANAGE POSTS</h2>
             <div className='grid grid-cols-3 max-w-7xl mx-auto'>
-            {data ? data?.map(post => <PostCard key={post.id} data={post} />) : <p className='text-center' >No Posts Found</p>}
+            {data ? data?.map(post => <PostCard setDeletePromt={setDeletePromt} setPostDelete={setPostDelete} key={post.id} data={post} />) : <p className='text-center' >No Posts Found</p>}
             </div>
-            
+            {deletePromt && <DeletePromt data={data} setData={setData} setDeletePromt={setDeletePromt} postDelete={postDelete} />}
         </div>
     );
 };
@@ -34,7 +40,7 @@ export async function getServerSideProps(context) {
   
   
     return {
-      props: {data : JSON.parse(JSON.stringify(userPosts))},
+      props: {posts : JSON.parse(JSON.stringify(userPosts))},
        // will be passed to the page component as props
     }
 
