@@ -68,7 +68,7 @@ export default function Home({ data }) {
 
 
       <div className='px-5 lg:p-0' >
-        <h2 className="text-center font-type font-black  pb-10 pt-20 text-lg lg:text-2xl " >POPULAR POSTS</h2>
+        <h2 className="text-center font-type font-black py-16  lg:pb-10 lg:pt-20 text-2xl " >POPULAR POSTS</h2>
 
         <div className="pb-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 max-w-7xl mx-auto gap-10">
 

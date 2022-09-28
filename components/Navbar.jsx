@@ -30,7 +30,7 @@ const Navbar = ({ setSigninVisible, signinVisible }) => {
 
   return (
     <div className='fixed w-full bg-stone-900 text-white z-50'>
-      <div className="navbar max-w-7xl py-5 mx-auto ">
+      <div className="navbar max-w-7xl py-5 mx-auto px-5 lg:px-0">
 
         <div className="navbar-start">
           <div className="dropdown">
