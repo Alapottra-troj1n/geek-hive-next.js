@@ -14,7 +14,7 @@ const DeletePromt = ({postDelete, setDeletePromt,data,setData}) => {
           
         };
       
-        const res = await fetch(`http://localhost:3000/api/deletepost?_id=${postDelete._id}`, settings);
+        const res = await fetch(`https://geek-hive-next-js.vercel.app/api/deletepost?_id=${postDelete._id}`, settings);
         const d = await res.json();
       
        if(d.success) {

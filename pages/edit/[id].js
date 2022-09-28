@@ -32,7 +32,7 @@ const EditPost = ({ post }) => {
             })
         };
 
-        const res = await fetch(`http://localhost:3000/api/updatePost?id=${post._id}`, settings);
+        const res = await fetch(`https://geek-hive-next-js.vercel.app/api/updatePost?id=${post._id}`, settings);
         const resData = await res.json();
 
         console.log(resData);

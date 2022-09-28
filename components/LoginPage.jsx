@@ -18,7 +18,7 @@ const LoginPage = ({ setSigninVisible }) => {
         e.preventDefault();
 
         signIn('github', {
-            callbackUrl: 'http://localhost:3000/'
+            callbackUrl: 'https://geek-hive-next-js.vercel.app/'
         })
 
     }
@@ -77,7 +77,7 @@ const LoginPage = ({ setSigninVisible }) => {
         };
 
       try{
-        const res = await fetch('http://localhost:3000/api/signup', settings);
+        const res = await fetch('https://geek-hive-next-js.vercel.app/api/signup', settings);
         const data = await res.json();
 
         console.log(data);

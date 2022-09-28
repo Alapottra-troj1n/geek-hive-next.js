@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { useSession } from 'next-auth/react';
+import { toast } from 'react-toastify';
 const Addblog = () => {
 
     const [category, setCategory] = useState('');
@@ -34,11 +35,11 @@ const Addblog = () => {
             })
         };
 
-        const res = await fetch('http://localhost:3000/api/addblog', settings);
+        const res = await fetch('https://geek-hive-next-js.vercel.app/api/addblog', settings);
         const data = await res.json();
 
         if(data.success) {
-            alert('Added blog successfully');
+            toast.success('Added blog successfully');
             e.target.reset();
 
         }
