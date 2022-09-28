@@ -6,9 +6,6 @@ const Navbar = ({ setSigninVisible, signinVisible }) => {
 
 
 
-
-
-
   const { data, status } = useSession();
 
   console.log(data, status);
@@ -44,7 +41,7 @@ const Navbar = ({ setSigninVisible, signinVisible }) => {
               {navLinks}
             </ul>
           </div>
-          <Link href={'/'}><span className="text-2xl tracking-wider font-type font-extrabold hover:text-main transition-all cursor-pointer">GEEK HIVE</span></Link>
+          <Link href={'/'}><span className="text-lg md:text-xl lg:text-2xl tracking-wider font-type font-extrabold whitespace-nowrap hover:text-main transition-all cursor-pointer">GEEK HIVE</span></Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal font-type text-lg tracking-wide font-bold p-0 gap-8">

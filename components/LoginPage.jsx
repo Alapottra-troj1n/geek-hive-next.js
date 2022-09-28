@@ -124,7 +124,7 @@ const LoginPage = ({ setSigninVisible }) => {
 
                 <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30" >
 
-                    <div className="p-16 bg-slate-700 border-2 border-main">
+                    <div className="p-8 lg:p-16 bg-slate-700 border-2 border-main">
                         <div className="absolute top-2 right-3" ><AiOutlineClose onClick={() => setSigninVisible(false)} className="text-main text-xl cursor-pointer " /></div>
                         <div>
                             <h2 className='font-type font-black text-center pb-7 text-3xl' >SIGN UP</h2>
@@ -159,7 +159,7 @@ const LoginPage = ({ setSigninVisible }) => {
     return (
         <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30" >
 
-            <div className="p-16 bg-slate-700 border-2 border-main">
+            <div className="p-8 lg:p-16 bg-slate-700 border-2 border-main">
                 <div className="absolute top-2 right-3" ><AiOutlineClose onClick={() => setSigninVisible(false)} className="text-main text-xl cursor-pointer " /></div>
                 <div>
                     <h2 className='font-type font-black text-center pb-7 text-3xl' >SIGN IN</h2>
