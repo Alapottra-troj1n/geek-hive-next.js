@@ -7,7 +7,7 @@ const BlogPost = ({post}) => {
     <div className="flex flex-col gap-2 p-5" >
     <div className=" flex justify-center ">
     <div className="relative h-72 w-full" >
-          <Image alt='' src={post.img || '/placeholderpost.gif'} layout="fill" objectFit='cover' />
+          <Image alt='' src={post?.img || '/placeholderpost.gif'} layout="fill" objectFit='cover' />
           <div className='font-type  absolute bg-slate-600 p-3' >
             <h2 className='text-4xl font-black text-white' >14</h2>
             <p className='text-white font-bold' >DEC 2022</p>

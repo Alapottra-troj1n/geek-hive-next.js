@@ -37,9 +37,9 @@ export default function Home({ data }) {
       </Head>
 
 
-      <div style={{ background: 'linear-gradient(0deg, rgba(44, 44, 44, 0.52), rgba(49, 49, 49, 0.475)), url(/bg-hero.jpg)' }} >
+      <div style={{ background: 'linear-gradient(0deg, rgba(44, 44, 44, 0.52), rgba(49, 49, 49, 0.475)), url(/bg-hero.jpg)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover' , backgroundPosition: 'center center'}} >
 
-        <div className="h-screen grid grid-cols-[60%,40%] items-center mx-auto bg-cover bg-center max-w-7xl" >
+        <div className="h-screen grid grid-cols-[60%,40%] items-center mx-auto max-w-7xl " >
           <div className="flex flex-col justify-center items-start font-type">
             <h2 className=" font-extrabold text-xl bg-white px-4 text-gray-800">GAMING AND CODING</h2>
             <h2 className="font-black  text-4xl text-white mt-2  leading-snug">THOUGHTS RELATED TO CODING AND GAMING</h2>

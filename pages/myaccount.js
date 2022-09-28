@@ -30,17 +30,17 @@ const MyAccount = ({ user }) => {
             <div className="stats stats-vertical lg:stats-horizontal shadow">
 
               <div className="stat">
-                <div className="stat-title">My Blogs</div>
+                <div className="stat-title">Example</div>
                 <div className="stat-value">21</div>
               </div>
 
               <div className="stat">
-                <div className="stat-title">My Role</div>
+                <div className="stat-title">Example</div>
                 <div className="stat-value">Writer</div>
               </div>
 
               <div className="stat">
-                <div className="stat-title">Likes</div>
+                <div className="stat-title">Example</div>
                 <div className="stat-value">1,200</div>
               </div>
 
