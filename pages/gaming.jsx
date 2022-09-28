@@ -10,10 +10,10 @@ const Gaming = ({data}) => {
             <div className="relative h-80" >
            
                 <Image src={'/bg-hero.jpg'} layout='fill' objectFit='cover' alt='' />
-                <h2 className="text-white text-center font-type font-black text-5xl tracking-wider absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" >GAMING SECTION</h2>
+                <h2 className="text-white text-center font-type font-black text-3xl lg:text-5xl tracking-wider absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" >GAMING SECTION</h2>
             </div>
 
-            <div className="max-w-7xl mx-auto grid grid-cols-3 py-10">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10 px-5 lg:px-0">
                         {data.map(post => <BlogPost post={post} key={post._id} /> )}
             </div>
 
