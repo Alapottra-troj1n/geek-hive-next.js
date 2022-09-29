@@ -37,25 +37,25 @@ const Navbar = ({ setSigninVisible, signinVisible }) => {
             <label tabIndex="0" className="btn btn-ghost lg:hidden">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
             </label>
-            <ul tabIndex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 font-type text-xl tracking-wide font-bold gap-8">
+            <ul tabIndex="0" className="menu menu-compact dropdown-content mt-3 p-5 lg:p-2 shadow bg-base-100 rounded-box w-52 font-type text-sm lg:text-xl tracking-wide font-bold gap-8">
               {navLinks}
             </ul>
           </div>
           <Link href={'/'}><span className="text-lg md:text-xl lg:text-2xl tracking-wider font-type font-extrabold whitespace-nowrap hover:text-main transition-all cursor-pointer">GEEK HIVE</span></Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal font-type text-lg tracking-wide font-bold p-0 gap-8">
+          <ul className="menu menu-horizontal font-type lg:text-lg tracking-wide font-bold p-0 gap-8">
             {navLinks}
           </ul>
         </div>
         <div className="navbar-end">
           {
 
-            status === 'unauthenticated' ? <button onClick={() => setSigninVisibleFunc()} className=" px-7 py-1 transition-all font-semibold font-type border-main text-lg  bg-main hover:border-main border-2 text-black hover:bg-stone-900 cursor-pointer hover:text-white  ">LOGIN</button>
+            status === 'unauthenticated' ? <button onClick={() => setSigninVisibleFunc()} className=" px-5 lg:px-7 py-1 transition-all font-semibold font-type border-main text-md lg:text-lg  bg-main hover:border-main border-2 text-black hover:bg-stone-900 cursor-pointer hover:text-white  ">LOGIN</button>
 
               :
 
-              <button onClick={() => signOut()} className=" px-7 py-1 transition-all font-semibold font-type border-main text-lg  bg-main hover:border-main border-2 text-black hover:bg-stone-900 cursor-pointer hover:text-white  ">LOG OUT</button>
+              <button onClick={() => signOut()} className=" px-5 lg:px-7 py-1 transition-all font-semibold font-type border-main text-md lg:text-lg  bg-main hover:border-main border-2 text-black hover:bg-stone-900 cursor-pointer hover:text-white">LOG OUT</button>
 
 
 

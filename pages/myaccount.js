@@ -16,13 +16,13 @@ const MyAccount = ({ user }) => {
 
 
       <div className='flex justify-center items-center flex-col'>
-        <div className='relative h-80 w-80 '>
+        <div className='relative w-44 h-44 lg:h-80 lg:w-80 '>
           <Image src={user?.image || 'https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?w=2000'} layout='fill' alt='' className='rounded-full' objectFit='cover' />
         </div>
-        <h2 className='text-4xl font-type font-bold capitalize mt-5' >Hey, <span>{user[0]?.username}</span> </h2>
+        <h2 className=' text-3xl lg:text-4xl font-type font-bold capitalize mt-5' >Hey, <span>{user[0]?.username}</span> </h2>
 
         <div className='mt-6'>
-          <h2 className='font-display  text-2xl'>Here is your statistics</h2>
+          <h2 className='font-display text-lg lg:text-2xl'>Here is your statistics</h2>
 
 
           <div className='my-5'>
