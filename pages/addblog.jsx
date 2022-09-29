@@ -90,7 +90,7 @@ const Addblog = () => {
 
 
             <h2 className='text-center font-type text-2xl lg:text-4xl font-black' >CREATE A BLOGPOST</h2>
-
+            <h2 className='text-center'>Note : Website Will Revalited Newly Added Post In Every 5 Hours | Meanwhile It will only appear in Manage Posts section</h2>
             <div className='grid grid-cols-1 lg:grid-cols-[50%,50%] my-24' >
                 <div className='flex justify-center items-center'>
                     <div className='relative w-96 h-96'>
