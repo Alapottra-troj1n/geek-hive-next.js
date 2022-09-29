@@ -35,6 +35,7 @@ export async function getStaticProps(context) {
  
         const db = await connectDb();
         const miscPost = await db.collection('blogposts').find({category: 'misc'}).toArray();
+       
 
     
       

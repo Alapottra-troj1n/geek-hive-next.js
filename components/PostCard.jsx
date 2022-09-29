@@ -1,6 +1,6 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import DeletePromt from './DeletePromt';
 
 const PostCard = ({data,setDeletePromt,setPostDelete}) => {
   console.log(data)
@@ -13,8 +13,8 @@ const PostCard = ({data,setDeletePromt,setPostDelete}) => {
 
 
     return (
-        <div className="card w-96 glass">
-        <figure><img src={data?.img} alt=""/></figure>
+        <div className="card glass">
+        <figure className=" relative h-60 w-80" ><Image layout="fill" objectFit='cover' alt='' src={data?.img} /></figure>
         <div className="card-body">
           <h2 className="card-title">{data.title}</h2>
           <p>{data.desc.slice(0,50)}...</p>

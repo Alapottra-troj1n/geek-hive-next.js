@@ -8,6 +8,7 @@ const Addblog = () => {
     const [content, setContent] = useState('');
     const {data, status} = useSession();
     const [imageUrl,setImageUrl] = useState(null);
+    const [addingBlog, setAddingBlog] = useState(false)
 
    const author = data.user.name;
 
@@ -48,7 +49,7 @@ const Addblog = () => {
     const handleAddBlog = async (e) => {
         e.preventDefault();
 
-       
+        setAddingBlog(true)
 
 
         const settings = {
@@ -73,6 +74,7 @@ const Addblog = () => {
         if(data.success) {
             toast.success('Added blog successfully');
             e.target.reset();
+            setAddingBlog(false);
 
         }
        
@@ -139,7 +141,7 @@ const Addblog = () => {
                         </div>
 
                         <div className='w-96'>
-                            <input type="submit" className="btn" value="ADD BLOG" disabled={imageUrl ? false : true} />
+                            <input type="submit" className="btn" value="ADD BLOG" disabled={imageUrl | !addingBlog ? false : true} />
                         </div>
 
 
