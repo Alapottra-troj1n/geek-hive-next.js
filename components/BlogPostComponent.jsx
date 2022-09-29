@@ -1,8 +1,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React from 'react';
 
 const BlogPost = ({post}) => {
+
+  const router = useRouter()
+
+  console.log(router.pathname)
+
   return (
     <div className="flex flex-col gap-2 p-5" >
     <div className=" flex justify-center ">
@@ -17,7 +23,16 @@ const BlogPost = ({post}) => {
 
      <div className="flex flex-col items-center lg:items-start">
      <p className='text-sm lg:text-lg' >Virtual by {post.author}</p>
-      <Link href={`post/${post._id}`} ><h2 className="font-type font-bold text-lg lg:text-2xl hover:text-main cursor-pointer transition-all" >{post.title}</h2></Link>
+    {router.pathname.includes('/post/') ?   
+    
+    <Link href={`${post._id}`} ><h2 className="font-type font-bold text-lg lg:text-2xl hover:text-main cursor-pointer transition-all" >{post.title}</h2></Link>
+    
+    :   
+    
+    <Link href={`post/${post._id}`} ><h2 className="font-type font-bold text-lg lg:text-2xl hover:text-main cursor-pointer transition-all" >{post.title}</h2></Link>
+    
+    
+    }
      </div>
 
     </div>

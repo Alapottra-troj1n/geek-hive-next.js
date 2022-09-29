@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import { useRouter } from 'next/router';
 import connectDb from '../../lib/connectDb';
 import BlogPostComponent from '../../components/BlogPostComponent'
 const { ObjectId } = require("mongodb");
