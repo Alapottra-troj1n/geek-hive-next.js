@@ -4,7 +4,8 @@ import BlogPost from '../components/BlogPostComponent';
 import connectDb from '../lib/connectDb';
 
 const Misc = ({data}) => {
-    console.log(data)
+
+    
     return (
         <div className="pt-20  mx-auto">
             <div className="relative h-80" >

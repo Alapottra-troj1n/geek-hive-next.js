@@ -5,10 +5,10 @@ import BlogPostComponent from '../../components/BlogPostComponent'
 const { ObjectId } = require("mongodb");
 
 const SinglePost = ({data, random}) => {
-    const router = useRouter();
+
     const timestamp = data[0]._id.toString().substring(0,8);
     const date = new Date( parseInt( timestamp, 16 ) * 1000 );
-    console.log(random);
+
 
 
     return (
@@ -16,7 +16,7 @@ const SinglePost = ({data, random}) => {
             <div className="pt-28">
 
            <div className="flex justify-center">
-           <div className="h-[500px] w-[450px] relative">
+           <div className="h-[350px] w-[350px] lg:h-[500px] lg:w-[450px] relative">
                 <Image src={data[0].img || '/placeholderpost.gif'} layout='fill' alt='' objectFit='cover' />
                 <div className="absolute bottom-0 p-2 bg-slate-900 px-8 font-type text-xl font-black text-white">
                     {data[0].category}
@@ -26,11 +26,11 @@ const SinglePost = ({data, random}) => {
 
            {/* text area */}
 
-           <div className="max-w-7xl  mx-auto py-10 " >
-                <h2 className="font-type font-black text-5xl text-white" >{data[0].title}</h2>
+           <div className="max-w-7xl  mx-auto py-10 px-6 lg:px-0" >
+                <h2 className="font-type font-black lg:text-5xl text-white text-xl " >{data[0].title}</h2>
                 <p>{date.toString().slice(3,15)} by {data[0].author}</p>
 
-                <div className="py-14 text-2xl">
+                <div className="py-14 text-lg lg:text-2xl">
                     <p>{data[0].desc}</p>
                 </div>
 
@@ -42,9 +42,9 @@ const SinglePost = ({data, random}) => {
                 </div>
 
                 {/* AUTHOR */}
-                <div className='py-20'>
+                <div className='py-20 flex justify-center'>
 
-                    <div className='bg-slate-600 max-w-2xl grid grid-cols-2'>
+                    <div className='bg-slate-600 max-w-2xl grid grid-cols-1 lg:grid-cols-2 p-5 lg:p-0'>
                         <div className='h-60 relative'>
                         <Image src={data[0].authorImg || `https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg` } layout='fill' alt='' objectFit='cover' />
                         <div className='absolute top-0 px-9 py-2 bg-slate-800 text-white font-type font-black ' >AUTHOR</div>
@@ -64,11 +64,11 @@ const SinglePost = ({data, random}) => {
 
             <div>
                     <div className="bg-main inline-block p-3 mt-20 mb-5">
-                        <h2 className='font-type font-black text-black text-xl' >ARTICLES YOU MIGHT LIKE</h2>
+                        <h2 className='font-type font-black text-black text-md lg:text-xl' >ARTICLES YOU MIGHT LIKE</h2>
                     </div>
 
 
-                   <div className="grid grid-cols-4">
+                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
                             {random.map( post => <BlogPostComponent key={post._id} post={post} />   )}
                    </div>
 
