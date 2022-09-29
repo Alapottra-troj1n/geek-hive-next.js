@@ -7,16 +7,48 @@ const Addblog = () => {
     const [category, setCategory] = useState('');
     const [content, setContent] = useState('');
     const {data, status} = useSession();
+    const [imageUrl,setImageUrl] = useState(null);
 
    const author = data.user.name;
 
+   const uploadFile = async(files) => {
 
+
+    
+            console.log(files[0]);
+            const formData = new FormData();
+            formData.append('image', files[0])
+
+       
+
+            const settings = {
+                method: 'POST',
+                body: formData
+            };
+
+           try{
+            const res = await fetch('https://api.imgbb.com/1/upload?expiration=600&key=e0134f6cff32253a16c40f0384a4000c', settings );
+
+            const imageData =  await res.json();
+
+            if(imageData.success){
+                console.log(imageData)
+                toast.success('image upload complete')
+                setImageUrl(imageData.data.image.url)
+               
+
+            }
+           }catch(err){
+            console.log(err)
+           }
+
+   }
 
 
     const handleAddBlog = async (e) => {
         e.preventDefault();
 
-
+       
 
 
         const settings = {
@@ -27,7 +59,7 @@ const Addblog = () => {
             },
             body: JSON.stringify({
                 title: e.target.postTitle.value,
-                img: e.target.imgUrl.value,
+                img: imageUrl,
                 tags: e.target.tags.value,
                 category: category,
                 desc: content,
@@ -43,7 +75,7 @@ const Addblog = () => {
             e.target.reset();
 
         }
-        console.log(data);
+       
 
     }
 
@@ -74,9 +106,13 @@ const Addblog = () => {
                             <input type="text" placeholder="Top 5 Programming Langueages" name='postTitle' className="input bg-white input-bordered w-full " />
                         </div>
 
+
                         <div className='w-96'>
                             <label className='font-display text-lg font-bold' >Image Url (please use ImgBb)</label>
-                            <input type="text" name='imgUrl' placeholder="https://i.ibb.co/1vd2zLq/chartjs-homepage.jpg" className="input bg-white input-bordered w-full " />
+                            <input type="file" name="imageFile" id="" onChange={e => uploadFile(e.target.files) } />
+
+
+
                         </div>
 
 
@@ -103,7 +139,7 @@ const Addblog = () => {
                         </div>
 
                         <div className='w-96'>
-                            <input type="submit" className="btn" value="ADD BLOG" />
+                            <input type="submit" className="btn" value="ADD BLOG" disabled={imageUrl ? false : true} />
                         </div>
 
 
