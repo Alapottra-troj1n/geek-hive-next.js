@@ -7,7 +7,9 @@ const LoginPage = ({ setSigninVisible }) => {
 
     const [page, setPage] = useState('signin');
 
-    const [error, setError] = useState('')
+    const [error, setError] = useState('');
+
+    const [processing, setProcessing] = useState(false);
 
 
 
@@ -27,6 +29,7 @@ const LoginPage = ({ setSigninVisible }) => {
 
     const handleSignIn = async (e) => {
         e.preventDefault();
+        setProcessing(true)
         const email = e.target.loginEmail.value;
         const pass = e.target.loginPassword.value;
        const res =  await signIn('credentials', {
@@ -36,9 +39,10 @@ const LoginPage = ({ setSigninVisible }) => {
         })
         if(res.error){
             setError(res.error);
+            setProcessing(false);
         }
         if(res.ok){
-
+            setProcessing(false);
             setError('')
             setSigninVisible(false)
 
@@ -53,7 +57,7 @@ const LoginPage = ({ setSigninVisible }) => {
 
 
     const handleSignUp = async (e) => {
-
+        setProcessing(true);
         e.preventDefault();
 
         const signupEmail = e.target.signupEmail.value;
@@ -63,6 +67,7 @@ const LoginPage = ({ setSigninVisible }) => {
 
         if (signupPassword !== signupConfirmPassword) {
             setError('Passwords do not match');
+            setProcessing(false);
             return;
 
         }
@@ -89,12 +94,12 @@ const LoginPage = ({ setSigninVisible }) => {
                 password: signupPassword,
                 redirect: true
             })
-
+            setProcessing(false);
             //if user exists
             setError('');
 
         }else if(!data.success){
-
+                setProcessing(false);
                 setError(data.message)
 
         }
@@ -102,7 +107,7 @@ const LoginPage = ({ setSigninVisible }) => {
       
       }catch(err){
         console.log(err)
-
+        setProcessing(false);
       }
 
 
@@ -137,7 +142,7 @@ const LoginPage = ({ setSigninVisible }) => {
                                 <input type="password" placeholder="Password" name='signupPassword' className="input w-full border-2 focus:border-main bg-white" />
                             </div>
                             <input type="password" placeholder="Confirm Password" name='signupConfirmPassword' className="input w-full border-2 focus:border-main bg-white" />
-                            <input type="submit" value="SIGN UP" className='px-2 cursor-pointer bg-main font-type font-black py-3 text-black rounded-lg' />
+                            <input type="submit" disabled={processing ? true : false} value="SIGN UP" className='px-2 cursor-pointer bg-main font-type font-black py-3 text-black rounded-lg' />
 
                         </form>
                         <div className="pt-2">
@@ -168,7 +173,7 @@ const LoginPage = ({ setSigninVisible }) => {
 
                     <input type="email" placeholder="Email" name='loginEmail' className="input w-full border-2 focus:border-main bg-white" />
                     <input type="password" placeholder="Password" name='loginPassword' className="input w-full border-2 focus:border-main bg-white" />
-                    <input type="submit" value="LOGIN" className='px-2 bg-main font-type font-black py-3 text-black rounded-lg cursor-pointer' />
+                    <input type="submit" disabled={processing ? true : false} value="LOGIN" className='px-2 bg-main font-type font-black py-3 text-black rounded-lg cursor-pointer' />
 
                 </form>
                 <div className="pt-2">
