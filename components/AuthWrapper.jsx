@@ -4,7 +4,7 @@ import React from 'react';
 import ProtectedRoute from './ProtectedRoute';
 
 
-const authRoutes = ['/dashboard', '/myaccount', '/addblog', '/manage']
+const authRoutes = ['/dashboard', '/myaccount', '/addblog', '/manage', 'edit']
 
 const AuthWrapper = ({children}) => {
     const router = useRouter();
