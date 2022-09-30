@@ -33,7 +33,7 @@ const DeletePromt = ({postDelete, setDeletePromt,data,setData}) => {
             <div className="p-16 bg-slate-700 border-2 flex justify-center flex-col border-main">
                 <div onClick={() => setDeletePromt(false)} className="absolute top-2 right-3" ><AiOutlineClose className="text-main text-xl cursor-pointer " /></div>
                 <div>
-                    <h2 className='font-display font-bold text-center pb-7 text-2xl' >DO YOU REALLY WANT TO DELETE  <br></br> {postDelete?.title}</h2>
+                    <h2 className='font-display font-bold text-center pb-7 lg:text-2xl' >DO YOU REALLY WANT TO DELETE <br /> {postDelete?.title}</h2>
                 </div>
                 <button onClick={handleDelete} className='btn' >DELETE</button>
 

@@ -110,7 +110,7 @@ const Addblog = () => {
 
 
                         <div className='w-96'>
-                            <label className='font-display text-lg font-bold' >Image Url (please use ImgBb)</label>
+                            <label className='font-display text-lg font-bold' >Image Upload</label>
                             <input type="file" name="imageFile" id="" onChange={e => uploadFile(e.target.files) } />
 
 
