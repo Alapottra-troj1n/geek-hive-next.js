@@ -16,12 +16,11 @@ const Addblog = () => {
 
 
     
-            console.log(files[0]);
+        
             const formData = new FormData();
             formData.append('image', files[0])
 
        
-
             const settings = {
                 method: 'POST',
                 body: formData
@@ -64,7 +63,8 @@ const Addblog = () => {
                 tags: e.target.tags.value,
                 category: category,
                 desc: content,
-                author: author
+                author: author,
+                pending: true
             })
         };
 

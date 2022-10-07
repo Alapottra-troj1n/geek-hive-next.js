@@ -33,7 +33,7 @@ export async function getStaticProps(context) {
 
  
         const db = await connectDb();
-        const gamingPost = await db.collection('blogposts').find({category: 'gaming'}).toArray();
+        const gamingPost = await db.collection('blogposts').find({category: 'gaming', pending: false}).toArray();
 
         console.log(gamingPost);
       
@@ -44,6 +44,6 @@ export async function getStaticProps(context) {
     return {
       props: {data : JSON.parse(JSON.stringify(gamingPost))},
        // will be passed to the page component as props
-       revalidate:18000,
+       revalidate:60,
     }
   }

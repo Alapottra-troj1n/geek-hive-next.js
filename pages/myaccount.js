@@ -27,7 +27,7 @@ const MyAccount = ({ user }) => {
 
           <div className='my-5'>
 
-            <div className="stats stats-vertical lg:stats-horizontal shadow">
+            {/* <div className="stats stats-vertical lg:stats-horizontal shadow">
 
               <div className="stat">
                 <div className="stat-title">Example</div>
@@ -44,7 +44,7 @@ const MyAccount = ({ user }) => {
                 <div className="stat-value">1,200</div>
               </div>
 
-            </div>
+            </div> */}
 
 
           </div>
@@ -52,9 +52,10 @@ const MyAccount = ({ user }) => {
 
           <div className="flex justify-center">
 
-            <div className="btn-group btn-group-horizontal">
+            <div className="btn-group btn-group-horizontal ">
               <Link href={'/addblog'} ><button className="btn ">Add a Blog</button></Link>
-              <Link  href={'/manage'} ><button className="btn ">Manage Blogs</button></Link>
+              <Link  href={'/manage'} ><button className="btn bg-gray-700">Manage Approved Blogs</button></Link>
+              <Link  href={''} ><button className="btn ">Pending Blogs</button></Link>
             </div>
 
 
