@@ -43,15 +43,13 @@ const SinglePost = ({data, random}) => {
                 {/* AUTHOR */}
                 <div className='py-20 flex justify-center'>
 
-                    <div className='bg-slate-600 max-w-2xl grid grid-cols-1 lg:grid-cols-2 p-5 lg:p-0'>
+                    <div className='bg-slate-600 max-w-2xl grid grid-cols-1 lg:grid-cols-2 p-5 lg:p-0 w-full'>
                         <div className='h-60 relative'>
                         <Image src={data[0].authorImg || `https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg` } layout='fill' alt='' objectFit='cover' />
                         <div className='absolute top-0 px-9 py-2 bg-slate-800 text-white font-type font-black ' >AUTHOR</div>
                         </div>
                         <div className='flex justify-center items-center flex-col text-center text-white px-5'>
                             <h2 className='font-display text-2xl font-bold tracking-wide' >{data[0].author}</h2>
-                            <small className=' py-2 text-left' >Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, nisi.</small>
-                            <button className=" px-7 mt-5 transition-all font-semibold font-type border-main text-lg  bg-main hover:border-main border-2 text-black hover:bg-stone-900 cursor-pointer hover:text-white  ">CONTACT</button>
                         </div>
                     </div>
 
