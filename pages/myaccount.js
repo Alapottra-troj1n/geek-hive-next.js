@@ -6,8 +6,9 @@ import connectDb from '../lib/connectDb';
 
 const MyAccount = ({ user }) => {
 
-  console.log(user);
 
+
+const {isAdmin} = user[0];
 
 
   return (
@@ -22,7 +23,7 @@ const MyAccount = ({ user }) => {
         <h2 className=' text-3xl lg:text-4xl font-type font-bold capitalize mt-5' >Hey, <span>{user[0]?.username}</span> </h2>
 
         <div className='mt-6'>
-          <h2 className='font-display text-lg lg:text-2xl'>Here is your statistics</h2>
+          <h2 className='font-display text-lg lg:text-2xl'>What do you want to do today ?</h2>
 
 
           <div className='my-5'>
@@ -53,13 +54,17 @@ const MyAccount = ({ user }) => {
           <div className="flex justify-center">
 
             <div className="btn-group btn-group-horizontal ">
-              <Link href={'/addblog'} ><button className="btn ">Add a Blog</button></Link>
+              <Link href={'/addblog'} ><button className="btn bg-gray-800">Add a Blog</button></Link>
               <Link  href={'/manage'} ><button className="btn bg-gray-700">Manage Blogs</button></Link>
-              <Link  href={'/pendingblogs'} ><button className="btn ">Pending Blogs</button></Link>
+             {isAdmin &&  <Link  href={'/admin-dashboard'} ><button className="btn bg-gray-800">Admin Dashboard</button></Link>}
+              <Link  href={'/pendingblogs'} ><button className="btn bg-gray-700">Pending Blogs</button></Link>
             </div>
+
+       
 
 
           </div>
+       
 
 
         </div>
