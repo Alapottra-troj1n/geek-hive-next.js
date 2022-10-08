@@ -54,8 +54,8 @@ const MyAccount = ({ user }) => {
 
             <div className="btn-group btn-group-horizontal ">
               <Link href={'/addblog'} ><button className="btn ">Add a Blog</button></Link>
-              <Link  href={'/manage'} ><button className="btn bg-gray-700">Manage Approved Blogs</button></Link>
-              <Link  href={''} ><button className="btn ">Pending Blogs</button></Link>
+              <Link  href={'/manage'} ><button className="btn bg-gray-700">Manage Blogs</button></Link>
+              <Link  href={'/pendingblogs'} ><button className="btn ">Pending Blogs</button></Link>
             </div>
 
 
