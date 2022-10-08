@@ -22,7 +22,7 @@ const BlogPost = ({post}) => {
     </div>
 
      <div className="flex flex-col items-center lg:items-start">
-     <p className='text-sm lg:text-lg' >Virtual by {post.author}</p>
+     <p className='text-sm lg:text-lg' >Posted by {post.author}</p>
     {router.pathname.includes('/post/') ?   
     
     <Link href={`${post._id}`} ><h2 className="font-type font-bold text-lg lg:text-2xl hover:text-main cursor-pointer transition-all" >{post.title}</h2></Link>

@@ -2,29 +2,31 @@ import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import React from 'react';
 import ProtectedRoute from './ProtectedRoute';
+import RequiredAdmin from './RequiredAdmin';
 
 
 
 
-const authRoutes = ['/dashboard', '/myaccount', '/addblog', '/manage', 'edit', '/admindashboard']
+const authRoutes = ['/dashboard', '/myaccount', '/addblog', '/manage', 'edit']
+const adminRoutes = ['/admindashboard']
 
 
 
-const AuthWrapper = ({children}) => {
+const AuthWrapper = ({ children }) => {
 
     const router = useRouter();
 
-    const {status} = useSession();
+    const { status } = useSession();
 
-    if(status === 'loading'){
+    if (status === 'loading') {
 
         return null;
     }
 
     return (
-       <>
-       {authRoutes.includes(router.pathname) ? <ProtectedRoute>{children}</ProtectedRoute> :  children}
-       </>
+        <>
+            {authRoutes.includes(router.pathname) ? <ProtectedRoute>{children}</ProtectedRoute> : adminRoutes.includes(router.pathname) ? <RequiredAdmin>{children}</RequiredAdmin> : children}
+        </>
     );
 };
 
