@@ -4,9 +4,14 @@ import React from 'react';
 import ProtectedRoute from './ProtectedRoute';
 
 
-const authRoutes = ['/dashboard', '/myaccount', '/addblog', '/manage', 'edit']
+
+
+const authRoutes = ['/dashboard', '/myaccount', '/addblog', '/manage', 'edit', '/admindashboard']
+
+
 
 const AuthWrapper = ({children}) => {
+
     const router = useRouter();
 
     const {status} = useSession();
@@ -18,7 +23,7 @@ const AuthWrapper = ({children}) => {
 
     return (
        <>
-       {authRoutes.includes(router.pathname) ? <ProtectedRoute>{children}</ProtectedRoute> : (children) }
+       {authRoutes.includes(router.pathname) ? <ProtectedRoute>{children}</ProtectedRoute> :  children}
        </>
     );
 };

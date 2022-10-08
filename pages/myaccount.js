@@ -56,7 +56,7 @@ const {isAdmin} = user[0];
             <div className="btn-group btn-group-horizontal ">
               <Link href={'/addblog'} ><button className="btn bg-gray-800">Add a Blog</button></Link>
               <Link  href={'/manage'} ><button className="btn bg-gray-700">Manage Blogs</button></Link>
-             {isAdmin &&  <Link  href={'/admin-dashboard'} ><button className="btn bg-gray-800">Admin Dashboard</button></Link>}
+             {isAdmin &&  <Link  href={'/admindashboard'} ><button className="btn bg-gray-800">Admin Dashboard</button></Link>}
               <Link  href={'/pendingblogs'} ><button className="btn bg-gray-700">Pending Blogs</button></Link>
             </div>
 
@@ -90,7 +90,7 @@ export async function getServerSideProps(context) {
 
   const data = await getSession(context);
 
-  const userEmail = data.user.email;
+  const userEmail = data?.user?.email;
 
   const db = await connectDb();
 

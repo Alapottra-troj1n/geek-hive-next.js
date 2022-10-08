@@ -26,7 +26,7 @@ export default NextAuth({
                 if (user.length > 0) {
                     const loggedUser = user[0];
 
-                    return { id: loggedUser._id, email: loggedUser.email, name: loggedUser.username, status: 'hmm' }
+                    return { id: loggedUser._id, email: loggedUser.email, name: loggedUser.username, isAdmin: loggedUser.isAdmin }
                 } else {
 
                     throw new Error('invailed credentials')
@@ -57,15 +57,15 @@ export default NextAuth({
             // TAKEAWAY : 1. ON AUTHORIZE FUNC WE CAN PUSH ANY KEY:VALUE AND RECIVE HERE AS A USER OBJECT AND 
             //MANIPULATE THE TOKEN WITH THE USER VALUE AND SEND TO THE THE SESSION FUNC BELOW AND SESSION FUNC WILL RECIVE IT AS A TOKEN
             //WITH INFORMATION FROM THE TOKEN OBJ IN THE SESSION WE CAN MANIPULATE SESSION.USER AND SEND THE INFO TO THE USER.
-            if(user && user.status){
-                token.status = user.status
+            if(user && user.isAdmin){
+                token.isAdmin = user.isAdmin
             }
             return token
         },
         
         //session has no user. user object is a part of session example = session.user <- this is what gets returns to the user
         async session({ session, token }) {
-            session.user.status = token.status
+            session.user.isAdmin = token.isAdmin
             return session
         }
 
