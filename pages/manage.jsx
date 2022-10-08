@@ -9,7 +9,8 @@ const Manage = ({posts}) => {
     const [deletePromt, setDeletePromt] = useState(false);
     const [postDelete, setPostDelete] = useState(null);
 
-   
+    
+    
 
     return (
         <div className='py-36 px-5 lg:px-0' >
