@@ -1,12 +1,11 @@
 import { getSession } from 'next-auth/react';
 import Image from 'next/image';
 import React from 'react';
-import BlogPost from '../components/BlogPostComponent';
 import connectDb from '../lib/connectDb';
 
 const PendingBlogs = ({ pendingPosts }) => {
 
-    console.log(pendingPosts)
+    
     return (
         <div className='py-36 px-5 lg:px-0' >
 
@@ -22,7 +21,7 @@ const PendingBlogs = ({ pendingPosts }) => {
                             <h2 className="card-title">{post.title}</h2>
                             <p>{post.desc.slice(0,100)}....</p>
                             <div className="card-actions justify-end">
-                                <h2 className="font-semibold text-md" >Pending For Approval</h2>
+                                <h2 className="font-semibold text-md text-red-400" >Pending For Approval</h2>
                             </div>
                         </div>
                     </div>

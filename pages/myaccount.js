@@ -8,7 +8,7 @@ const MyAccount = ({ user }) => {
 
 
 
-const {isAdmin} = user[0];
+  const { isAdmin } = user[0];
 
 
   return (
@@ -53,19 +53,20 @@ const {isAdmin} = user[0];
 
           <div className="flex justify-center">
 
-            <div className="btn-group btn-group-horizontal ">
+            <div className=" btn-group flex-col lg:flex-row " >
               <Link href={'/addblog'} ><button className="btn bg-gray-800">Add a Blog</button></Link>
-              <Link  href={'/manage'} ><button className="btn bg-gray-700">Manage Blogs</button></Link>
-             {isAdmin &&  <Link  href={'/admindashboard'} ><button className="btn bg-gray-800">Admin Dashboard</button></Link>}
-              <Link  href={'/pendingblogs'} ><button className="btn bg-gray-700">Pending Blogs</button></Link>
+              <Link href={'/manage'} ><button className="btn bg-gray-700">Manage Blogs</button></Link>
+              {isAdmin && <Link href={'/admindashboard'} ><button className="btn bg-gray-800">Admin Dashboard</button></Link>}
+              <Link href={'/pendingblogs'} ><button className="btn bg-gray-700">Pending Blogs</button></Link>
             </div>
 
-       
+
 
 
           </div>
-       
 
+
+        
 
         </div>
 

@@ -90,11 +90,11 @@ const Addblog = () => {
 
 
             <h2 className='text-center font-type text-2xl lg:text-4xl font-black' >CREATE A BLOGPOST</h2>
-            <h2 className='text-center'>Note : Website Will Revalited Newly Added Post In Every 5 Hours | Meanwhile It will only appear in Manage Posts section</h2>
+           
             <div className='grid grid-cols-1 lg:grid-cols-[50%,50%] my-24' >
                 <div className='flex justify-center items-center'>
-                    <div className='relative w-96 h-96'>
-                        <Image src={'/saly.png'} layout='fill' objectFit='cover' alt='' />
+                    <div className='relative w-[40vw] h-full'>
+                        <Image src={'/saly.png'} layout='fill' objectFit='cover'  alt='' />
                     </div>
                 </div>
 
@@ -110,8 +110,11 @@ const Addblog = () => {
 
 
                         <div className='w-96'>
-                            <label className='font-display text-lg font-bold' >Image Upload</label>
-                            <input type="file" name="imageFile" id="" onChange={e => uploadFile(e.target.files) } />
+                            <label htmlFor='imageUpload' className='font-display text-lg font-bold cursor-pointer flex items-center gap-3' >
+                                <img src="https://cdn-icons-png.flaticon.com/512/5460/5460486.png" className='w-12 my-2' alt="" />
+                                <h2>Upload Image</h2>
+                            </label>
+                            <input type="file" name="imageFile" id="imageUpload" className='hidden' onChange={e => uploadFile(e.target.files) } />
 
 
 
