@@ -26,14 +26,14 @@ const ApprovePost = ({ pendingPosts }) => {
 
 
 
-            <div className="max-w-7xl grid grid-cols-3 mx-auto gap-3 mt-24" >
+            <div className="lg:max-w-7xl grid grid-cols-1  lg:grid-cols-3 mx-auto gap-3 mt-24" >
 
                 {data.map(post => (
 
                     <>
 
-                        <div className="card  bg-neutral text-neutral-content">
-                            <div className="card-body items-center text-center">
+                        <div className="bg-neutral text-neutral-content">
+                            <div className="items-center text-center">
                                 <h2 className="card-title">{post.title}</h2>
                                 <p>{post.desc.slice(0,100)}...</p>
                                 <small>Author : {post.author}</small>
