@@ -20,7 +20,6 @@ const DeletePromt = ({postDelete, setDeletePromt,data,setData}) => {
        if(d.success) {
             setDeletePromt(false);
             let filteredArray = data.filter(item => item._id !== postDelete._id);
-            console.log(filteredArray);
             setData(filteredArray);      
        }
       

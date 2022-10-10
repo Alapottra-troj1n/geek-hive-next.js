@@ -1,4 +1,3 @@
-
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import React, { useEffect } from 'react';
@@ -37,7 +36,7 @@ const AdminDashboard = () => {
                             </div>
 
                             <div className="p-4 md:w-1/4 sm:w-1/2 w-full ">
-                                <Link href={'/admindashboard/approvepost'}>
+                                <Link href={''}>
                                 <div className="border-2 border-gray-200 px-4 py-6 rounded-lg bg-slate-200 text-slate-800" >
                                     <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="text-green-600 w-12 h-12 mb-3 inline-block" viewBox="0 0 24 24">
                                         <path d="M8 17l4 4 4-4m-4-5v9"></path>

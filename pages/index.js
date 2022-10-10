@@ -1,8 +1,6 @@
 import Head from 'next/head';
-
 import { useEffect, useState } from 'react';
 import BlogPostComponent from '../components/BlogPostComponent';
-import LoginPage from '../components/LoginPage';
 import SmallPost from '../components/SmallPost'
 import connectDb from '../lib/connectDb';
 
@@ -106,6 +104,19 @@ export default function Home({ data }) {
 
 
         </div>
+
+
+      </div>
+
+
+
+
+
+      <div className='py-56 max-w-7xl mx-auto'>
+
+            <div>
+              <h2 className='font-type font-black text-4xl' >STAY CURIOUS.</h2>
+            </div>
 
 
       </div>
