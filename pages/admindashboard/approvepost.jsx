@@ -8,7 +8,7 @@ const ApprovePost = ({ pendingPosts }) => {
     const [deletePromt, setDeletePromt] = useState(false);
     const [data, setData] = useState(pendingPosts);
 
-    const [singlePost, setSinglePost ] = useState(null);
+    const [singlePost, setSinglePost] = useState(null);
 
 
     console.log(pendingPosts);
@@ -16,8 +16,8 @@ const ApprovePost = ({ pendingPosts }) => {
         <div className="py-36">
 
 
-           
-       
+
+
 
 
 
@@ -37,15 +37,16 @@ const ApprovePost = ({ pendingPosts }) => {
                         <div className="card bg-neutral text-neutral-content">
                             <div className="card-body items-center text-center">
                                 <h2 className="card-title">{post.title}</h2>
-                                <p>{post.desc.slice(0,25)}...</p>
+                                <p>{post.desc.slice(0, 25)}...</p>
                                 <small>Author : {post.author}</small>
-                              
+
                                 <div className="card-actions justify-end">
                                     <button className="btn btn-sm bg-main hover:bg-main text-black">Approve</button>
-                                    <button onClick={() => setDeletePromt(!deletePromt)}  className="btn btn-sm bg-red-500 hover:bg-red-600 text-black">Delete</button>
+                                    <button onClick={() => setDeletePromt(!deletePromt)} className="btn btn-sm bg-red-500 hover:bg-red-600 text-black">Delete</button>
                                     <button onClick={() => {
-                                        setShowDetails(!showDetails)
                                         setSinglePost(post);
+                                        setShowDetails(!showDetails)
+
 
                                     }} className="btn btn-sm btn-ghost">View</button>
                                 </div>
