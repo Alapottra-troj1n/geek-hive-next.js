@@ -19,7 +19,6 @@ const ApprovePost = ({ pendingPosts }) => {
 
 
 
-
             <h2 className="text-center text-3xl font-type uppercase font-black" >Pending Posts - Admin</h2>
 
 
@@ -29,7 +28,7 @@ const ApprovePost = ({ pendingPosts }) => {
 
             <div className="max-w-7xl grid grid-cols-3 mx-auto gap-3 mt-24" >
 
-                {pendingPosts.map(post => (
+                {data.map(post => (
 
                     <>
 
