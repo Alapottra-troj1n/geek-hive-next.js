@@ -14,7 +14,7 @@ const ApprovePost = ({ pendingPosts }) => {
         <div className="py-36">
 
 
-            {showDetails && <AdminPendingPostViewer setShowDetails={setShowDetails} />}
+           
        
 
 
@@ -46,6 +46,7 @@ const ApprovePost = ({ pendingPosts }) => {
                             </div>
                         </div>
                         {deletePromt && <DeletePromt postDelete={post} data={data} setData={setData} setDeletePromt={setDeletePromt} />}
+                        {showDetails && <AdminPendingPostViewer post={post} setShowDetails={setShowDetails} />}
                     </>
 
                 ))}
