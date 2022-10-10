@@ -4,11 +4,13 @@ import { useSession } from 'next-auth/react';
 import { toast } from 'react-toastify';
 const Addblog = () => {
 
-    const [category, setCategory] = useState('');
+    const [category, setCategory] = useState('programming');
     const [content, setContent] = useState('');
     const {data, status} = useSession();
     const [imageUrl,setImageUrl] = useState(null);
     const [addingBlog, setAddingBlog] = useState(false)
+
+    console.log(category);
 
    const author = data.user.name;
 
