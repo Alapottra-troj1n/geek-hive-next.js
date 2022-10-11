@@ -7,19 +7,20 @@
 
 # Implemented Features :
 
-*  Dynamic Routes with SSR & ISR
-*Implemented NextAuth Authentication
-*  Implemented Private and Protected Routes
+*  Dynamic routes with SSR & ISR 
+*  Implemented NextAuth authentication
+*  Implemented private and Protected user and admin routes
 *  Backend with Nextjs and MongoDB Database 
 *  External api for uploading images
 *  Implemented CRUD functionalities such as add, update and deletetion of blogposts
+*  Higher level of authorization (Admin Functionalities and Dashboard)
+*  Admins have to approve pending post before they show up live on the website
+*  Client-side and Server-side authentication and authorization
 
 # Features to be implemented :
 
-* Higher level of Authorization (Admin Functionalities)
 * Password Hashing
-* Rich Text Processing
-* Author Statistics 
+
 
 
 
