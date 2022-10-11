@@ -12,10 +12,10 @@ const SinglePost = ({data, random}) => {
 
     return (
         <div>
-            <div className="pt-28">
+            <div className="pt-20">
 
            <div className="flex justify-center">
-           <div className="h-[350px] w-[350px] lg:h-[500px] lg:w-[450px] relative">
+           <div className="h-[350px] w-full lg:h-[500px] lg:w-full relative">
                 <Image src={data[0].img || '/placeholderpost.gif'} layout='fill' alt='' objectFit='cover' />
                 <div className="absolute bottom-0 p-2 bg-slate-900 px-8 font-type text-xl font-black text-white">
                     {data[0].category}

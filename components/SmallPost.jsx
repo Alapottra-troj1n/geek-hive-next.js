@@ -9,8 +9,8 @@ const smallPost = ({postData}) => {
   
 
     return (
-        <div className="bg-white mt-5 grid grid-cols-1 lg:grid-cols-2 items-center p-3 ">
-            <div className="relative h-44 w-44 " >
+        <div className="bg-white mt-5 grid grid-cols-1 lg:grid-cols-2 items-center p-3 gap-3 ">
+            <div className="relative h-44 w-full" >
                 <Image src={postData.img || '/placeholderpost.gif'} alt='' layout='fill' objectFit='cover'  />
             </div>
             <div>

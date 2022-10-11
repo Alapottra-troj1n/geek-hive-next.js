@@ -41,8 +41,8 @@ export default function Home({ data }) {
         <div className="pt-60 pb-40 px-5 lg:h-screen lg:p-0 grid grid-cols-1 lg:grid-cols-[60%,40%] items-center mx-auto max-w-7xl " >
           <div className="flex flex-col justify-center items-start font-type">
             <h2 className=" font-extrabold text-md lg:text-xl bg-white px-4 text-gray-800 whitespace-nowrap">GAMING AND CODING</h2>
-            <h2 className="font-black text-xl lg:text-4xl text-white mt-2 leading-8">THOUGHTS RELATED TO CODING AND GAMING</h2>
-            <p className='font-display text-sm lg:text-lg text-white mt-2'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque sit necessitatibus suscipit aperiam aliquid fugiat enim ea nisi aliquam quos.</p>
+            <h2 className="font-black text-xl lg:text-4xl text-white mt-2 leading-7">THOUGHTS RELATED TO CODING AND GAMING</h2>
+            <p className='font-display text-sm lg:text-lg text-white mt-2'>Everything you ever wanted to know about Gaming, Tech and Programming.</p>
           </div>
 
           <div className="flex p-8 justify-center items-center">
@@ -113,14 +113,14 @@ export default function Home({ data }) {
 
 
 
-      <div className='py-24 max-w-7xl mx-auto flex items-center'>
+      <div className='px-5 py-10 lg:py-24 lg:px-0 max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-10'>
 
             <div>
-              <h2 className='font-type font-black text-4xl text-white' >STAY CURIOUS.</h2>
-              <h2 className='font-display text-xl mt-2' >We are still not sure how we got here, but we are excited about where we are going</h2>
+              <h2 className='font-type font-black text-2xl lg:text-4xl text-white' >STAY CURIOUS.</h2>
+              <h2 className='font-display lg:text-xl mt-2' >We are still not sure how we got here, but we are excited about where we are going</h2>
             </div>
 
-            <div className='relative h-[500px] w-[800px]' >
+            <div className='relative lg:h-[500px] lg:w-[800px] h-80 w-80' >
 
               <Image src="/person3.png" objectFit='cover' layout='fill'  alt="" />
 
