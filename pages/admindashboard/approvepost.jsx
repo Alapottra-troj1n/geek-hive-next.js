@@ -1,4 +1,6 @@
+import { useSession } from 'next-auth/react';
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
 import AdminPendingPostViewer from '../../components/AdminPendingPostViewer';
 import DeletePromt from '../../components/DeletePromt';
 import connectDb from '../../lib/connectDb';
@@ -8,10 +10,43 @@ const ApprovePost = ({ pendingPosts }) => {
     const [deletePromt, setDeletePromt] = useState(false);
     const [data, setData] = useState(pendingPosts);
 
+    const {data: currentUser} = useSession();
+
     const [singlePost, setSinglePost] = useState(null);
 
 
-    console.log(pendingPosts);
+
+    const handleApprove = async(post) => {
+
+        const settings = {
+            method: 'PATCH',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                userEmail : currentUser.user.email
+            })
+        };
+
+        const res = await fetch(`https://geek-hive-next-js.vercel.app/api/acceptpending?id=${post._id}`, settings);
+        const d = await res.json();
+       
+        if(d.success){
+            let filteredArray = data.filter(item => item._id !== post._id);
+             
+            setData(filteredArray)
+            toast.success('Blogpost approved successfully')
+
+        }
+
+
+
+    }
+
+
+
+  
     return (
         <div className="py-36">
 
@@ -41,7 +76,7 @@ const ApprovePost = ({ pendingPosts }) => {
                                 <small>Author : {post.author}</small>
 
                                 <div className="card-actions justify-end">
-                                    <button className="btn btn-sm bg-main hover:bg-main text-black">Approve</button>
+                                    <button onClick={() => handleApprove(post)} className="btn btn-sm bg-main hover:bg-main text-black">Approve</button>
                                     <button onClick={() => setDeletePromt(!deletePromt)} className="btn btn-sm bg-red-500 hover:bg-red-600 text-black">Delete</button>
                                     <button onClick={() => {
                                         setSinglePost(post);

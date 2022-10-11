@@ -8,7 +8,7 @@ import RequiredAdmin from './RequiredAdmin';
 
 
 const authRoutes = ['/dashboard', '/myaccount', '/addblog', '/manage', 'edit']
-const adminRoutes = ['/admindashboard']
+const adminRoutes = ['/admindashboard','/admindashboard/approvepost']
 
 
 
