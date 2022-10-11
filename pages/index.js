@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import BlogPostComponent from '../components/BlogPostComponent';
 import SmallPost from '../components/SmallPost'
@@ -112,10 +113,18 @@ export default function Home({ data }) {
 
 
 
-      <div className='py-56 max-w-7xl mx-auto'>
+      <div className='py-24 max-w-7xl mx-auto flex items-center'>
 
             <div>
-              <h2 className='font-type font-black text-4xl' >STAY CURIOUS.</h2>
+              <h2 className='font-type font-black text-4xl text-white' >STAY CURIOUS.</h2>
+              <h2 className='font-display text-xl mt-2' >We are still not sure how we got here, but we are excited about where we are going</h2>
+            </div>
+
+            <div className='relative h-[500px] w-[800px]' >
+
+              <Image src="/person3.png" objectFit='cover' layout='fill'  alt="" />
+
+
             </div>
 
 
