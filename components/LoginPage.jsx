@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
-
 import { signIn, useSession } from 'next-auth/react';
+import Spinner from './Spinner';
 
 const LoginPage = ({ setSigninVisible }) => {
 
@@ -14,6 +14,10 @@ const LoginPage = ({ setSigninVisible }) => {
 
 
 
+    if(processing) {
+
+        return <Spinner/>
+    }
 
 
     const signInWithGithub = (e) => {
@@ -98,15 +102,13 @@ const LoginPage = ({ setSigninVisible }) => {
             //if user exists
             setError('');
 
-        }else if(!data.success){
-                setProcessing(false);
-                setError(data.message)
-
         }
 
+        setProcessing(false);
+        setError('');
       
       }catch(err){
-        console.log(err)
+        setError(err.message);
         setProcessing(false);
       }
 
@@ -173,7 +175,7 @@ const LoginPage = ({ setSigninVisible }) => {
 
                     <input type="email" placeholder="Email" name='loginEmail' className="input w-full border-2 focus:border-main bg-white" />
                     <input type="password" placeholder="Password" name='loginPassword' className="input w-full border-2 focus:border-main bg-white" />
-                    <input type="submit" disabled={processing ? true : false} value="LOGIN" className='px-2 bg-main font-type font-black py-3 text-black rounded-lg cursor-pointer' />
+                    <input type="submit" value="LOGIN" className='px-2 bg-main font-type font-black py-3 text-black rounded-lg cursor-pointer' />
 
                 </form>
                 <div className="pt-2">
