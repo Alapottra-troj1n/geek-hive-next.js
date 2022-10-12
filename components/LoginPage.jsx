@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import { signIn, useSession } from 'next-auth/react';
 import Spinner from './Spinner';
-
+import { BsGithub } from 'react-icons/bs';
 const LoginPage = ({ setSigninVisible }) => {
 
     const [page, setPage] = useState('signin');
@@ -14,11 +14,11 @@ const LoginPage = ({ setSigninVisible }) => {
 
 
 
-    if(processing) {
+    if (processing) {
 
         return (
             <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30" >
-                <Spinner/>
+                <Spinner />
             </div>
         )
     }
@@ -40,23 +40,24 @@ const LoginPage = ({ setSigninVisible }) => {
         setProcessing(true)
         const email = e.target.loginEmail.value;
         const pass = e.target.loginPassword.value;
-       const res =  await signIn('credentials', {
+        const res = await signIn('credentials', {
             email: email,
             password: pass,
             redirect: false
         })
-        if(res.error){
+        if (res.error) {
+            console.log(res)
             setError(res.error);
             setProcessing(false);
         }
-        if(res.ok){
+        if (res.ok) {
             setProcessing(false);
             setError('')
             setSigninVisible(false)
 
         }
         //if res.ok == true that's mean all good.. if its false there will be a res.error with the error message;
-       
+
 
 
 
@@ -89,32 +90,32 @@ const LoginPage = ({ setSigninVisible }) => {
             body: JSON.stringify({ email: signupEmail, password: signupPassword, username: signupUsername })
         };
 
-      try{
-        const res = await fetch('https://geek-hive-next-js.vercel.app/api/signup', settings);
-        const data = await res.json();
+        try {
+            const res = await fetch('https://geek-hive-next-js.vercel.app/api/signup', settings);
+            const data = await res.json();
 
-        console.log(data);
+            console.log(data);
 
-        if (data.success) {
+            if (data.success) {
 
-            const res = await signIn('credentials', {
-                email: signupEmail,
-                password: signupPassword,
-                redirect: true
-            })
+                const res = await signIn('credentials', {
+                    email: signupEmail,
+                    password: signupPassword,
+                    redirect: true
+                })
+                setProcessing(false);
+                //if user exists
+                setError('');
+
+            }
+
             setProcessing(false);
-            //if user exists
             setError('');
 
+        } catch (err) {
+            setError(err.message);
+            setProcessing(false);
         }
-
-        setProcessing(false);
-        setError('');
-      
-      }catch(err){
-        setError(err.message);
-        setProcessing(false);
-      }
 
 
 
@@ -189,8 +190,8 @@ const LoginPage = ({ setSigninVisible }) => {
 
 
 
-                <div className='mt-3 text-center'>
-                    <button onClick={signInWithGithub}>Sign In with Github</button>
+                <div className='py-3 mt-5 rounded-lg cursor-pointer font-semibold text-black font-display text-md flex justify-center items-center gap-2 bg-main text-center'>
+                    <button  onClick={signInWithGithub}>Continue with Github  </button>  <BsGithub className='text-xl' />
                 </div>
 
             </div>
