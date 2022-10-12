@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import BlogPostComponent from '../components/BlogPostComponent';
 import SmallPost from '../components/SmallPost'
+import Spinner from '../components/Spinner';
 import connectDb from '../lib/connectDb';
 
 
@@ -82,7 +83,6 @@ export default function Home({ data }) {
       <div className="py-20 bg-white ">
 
         <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3  max-w-7xl  mx-auto" >
-
           <div className='flex flex-col items-center justify-center'>
             <span className="font-extrabold text-md bg-slate-800 px-6 text-main font-type w-full text-center md:w-auto  py-2">GAMING </span>
 
